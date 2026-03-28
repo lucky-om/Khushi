@@ -7,7 +7,7 @@ This is a private digital sanctuary designed exclusively for **Khushi**. It’s 
 ---
 
 ## 🔗 Experience it Live
-✨ **[Live Link](https://khushi.luckyverse.tech)** ✨
+✨ **[Live Link](https://khushi.luckyverse.tech/flower/)** ✨
 
 ---
 
