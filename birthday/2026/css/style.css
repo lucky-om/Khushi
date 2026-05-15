@@ -69,10 +69,10 @@ img{user-select:none;-webkit-user-select:none;max-width:100%;display:block}
 .gallery-wrap{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100%;width:100%;padding:clamp(24px,5vh,48px) 16px}
 
 /* Stacked Gallery */
-.stack-gallery { position: relative; width: 100%; max-width: min(88vw, 350px); aspect-ratio: 3/4; display: flex; align-items: center; justify-content: center; }
+.stack-gallery { position: relative; width: 100%; max-width: min(88vw, 350px); aspect-ratio: 3/4.5; display: flex; align-items: center; justify-content: center; }
 .stack-card { position: absolute; background: #fff; border-radius: 6px; padding: 12px 12px 44px; box-shadow: 0 12px 60px rgba(0,0,0,.6), 0 0 40px rgba(65,105,225,.15); width: 100%; cursor: pointer; transition: transform 0.5s cubic-bezier(.34,1.56,.64,1), opacity 0.4s; }
 .stack-card::before { content: ''; position: absolute; inset: -2px; border-radius: 7px; background: linear-gradient(135deg, rgba(135,206,235,.3), rgba(65,105,225,.2), rgba(30,144,255,.3)); z-index: -1; }
-.stack-card img, .stack-card .ph-placeholder { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 2px; display: block; }
+.stack-card img, .stack-card .ph-placeholder { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 2px; display: block; }
 .stack-card .ph-placeholder { background: linear-gradient(135deg,#0d1b3e,#1e3a6e); display: flex !important; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
 .stack-card:hover { transform: translate(var(--dx), calc(var(--dy) - 15px)) rotate(calc(var(--rot) + 2deg)) scale(1.04) !important; }
 
