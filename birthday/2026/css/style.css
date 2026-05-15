@@ -146,3 +146,30 @@ img{user-select:none;-webkit-user-select:none;max-width:100%;display:block}
   .cake-wrap,.gallery-wrap{padding:12px 12px}
   .section-title{font-size:clamp(16px,4vw,22px);margin-bottom:10px}
 }
+
+/* Laptop & Desktop Enhancements */
+@media(min-width: 768px) {
+  /* Landing */
+  .card1 { max-width: 600px; padding: 60px 50px; }
+  .hbd-icon { font-size: 100px; }
+  .card1 h1 { font-size: 32px; }
+  
+  /* Gallery */
+  .stack-gallery { max-width: 440px; }
+  .stack-card { padding: 18px 18px 60px; border-radius: 10px; }
+  .pcap { font-size: 26px; }
+
+  /* Cake */
+  .cake-wrap { transform: scale(1.15); }
+  
+  /* Letter */
+  .letter { max-width: 720px; padding: 50px 60px; }
+  .letter h1 { font-size: 44px; }
+  .lbody { font-size: 18px; }
+}
+
+@media(min-width: 1024px) {
+  .stack-gallery { max-width: 500px; }
+  .cake-wrap { transform: scale(1.3); }
+  .letter { max-width: 800px; }
+}

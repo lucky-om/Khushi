@@ -3,7 +3,7 @@
 'use strict';
 
 /* ── CONFIG ── */
-var BIRTH_YEAR = 2003;
+var BIRTH_YEAR = 2006;
 var PHOTOS = [
   { src:'photos/photo1.jpg', cap:'Khushi 💙' },
   { src:'photos/photo2.jpg', cap:'My Bestie 🌸' },
