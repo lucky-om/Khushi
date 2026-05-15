@@ -1,0 +1,125 @@
+/* Happy Birthday Khushi 2026 */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{width:100%;height:100%;overflow:hidden;font-family:'Segoe UI',Arial,sans-serif}
+img{user-select:none;-webkit-user-select:none;pointer-events:none;max-width:100%}
+
+/* ── SECTIONS ── */
+.sec{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .6s ease;z-index:1;overflow:hidden}
+.sec.hidden{opacity:0;pointer-events:none}
+.sec.scrollable{overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;align-items:flex-start;justify-content:flex-start}
+
+/* ── SHARED BUTTON ── */
+.btn{border:none;border-radius:50px;padding:clamp(12px,3vw,16px) clamp(28px,6vw,48px);font-size:clamp(14px,3.5vw,17px);font-weight:700;cursor:pointer;transition:all .3s;letter-spacing:.4px;display:inline-flex;align-items:center;gap:8px}
+.btn-blue{background:linear-gradient(135deg,#87ceeb,#4169e1);color:#fff;box-shadow:0 8px 28px rgba(65,105,225,.4)}
+.btn-blue:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 14px 36px rgba(65,105,225,.6)}
+.btn-blue:active{transform:scale(.97)}
+
+/* ── FLOATING BG EMOJIS (S1) ── */
+.bgh{position:fixed;opacity:.18;pointer-events:none;animation:bgF var(--d,8s) ease-in-out infinite;animation-delay:var(--dl,0s)}
+@keyframes bgF{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+
+/* ══ S1 LANDING (BLUE) ══ */
+#s1{background:linear-gradient(160deg,#dbeeff 0%,#c8e6ff 45%,#e0f0ff 100%)}
+.card1{background:rgba(255,255,255,.96);border-radius:28px;padding:clamp(26px,5vw,52px) clamp(20px,5vw,44px);max-width:440px;width:88vw;text-align:center;box-shadow:0 20px 80px rgba(65,105,225,.18),0 4px 16px rgba(0,0,0,.06);animation:cardIn .8s cubic-bezier(.34,1.56,.64,1)}
+@keyframes cardIn{from{transform:scale(.7) translateY(28px);opacity:0}to{transform:scale(1);opacity:1}}
+.hbd-icon{font-size:clamp(60px,15vw,88px);display:block;margin-bottom:14px;animation:bounce 2s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.card1 h1{font-size:clamp(17px,4.2vw,24px);font-weight:800;background:linear-gradient(135deg,#1e90ff,#4169e1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.3;margin-bottom:8px}
+.card1 p{font-size:clamp(12px,2.8vw,14px);color:#89a;margin-bottom:24px}
+
+/* ══ S2 MATRIX SURPRISE ══ */
+#s2{background:#000}
+#matrix-rain{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+#countdown{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Pacifico',cursive;font-size:clamp(60px,18vmin,180px);background:linear-gradient(135deg,#87ceeb,#4169e1,#1e90ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;z-index:10;opacity:0;transition:opacity .4s;filter:drop-shadow(0 0 20px rgba(30,144,255,.8));pointer-events:none}
+#countdown.show{opacity:1}
+#textDisplay{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:88vw;max-width:640px;background:rgba(255,255,255,.97);border-radius:20px;padding:clamp(18px,5vmin,38px) clamp(16px,5vw,34px);box-shadow:0 20px 60px rgba(30,144,255,.25);z-index:10;display:none;opacity:0;transition:opacity .6s;text-align:center}
+#textDisplay::after{content:'💙';position:absolute;top:10px;right:14px;font-size:18px;animation:hb 2s ease-in-out infinite}
+#textDisplay.show{display:block;opacity:1}
+#textContent{font-family:'Dancing Script',cursive;font-size:clamp(22px,6vmin,40px);font-weight:700;line-height:1.4;background:linear-gradient(135deg,#1e90ff,#87ceeb,#4169e1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:1px}
+#giftGif{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);z-index:20;width:min(78vw,78vh,480px);height:auto;max-width:90vw;max-height:82vh;object-fit:contain;display:none;border-radius:16px;box-shadow:0 0 60px rgba(30,144,255,.6)}
+#giftGif.show{display:block;animation:popIn .7s cubic-bezier(.34,1.56,.64,1) forwards}
+@keyframes popIn{0%{transform:translate(-50%,-50%) scale(0);opacity:0}60%{transform:translate(-50%,-50%) scale(1.08);opacity:1}100%{transform:translate(-50%,-50%) scale(1);opacity:1}}
+#fireworks{position:fixed;inset:0;pointer-events:none;z-index:15}
+.spark{position:absolute;width:6px;height:6px;border-radius:50%;animation:sparkFly var(--dur,1.2s) ease-out forwards}
+@keyframes sparkFly{0%{transform:translate(0,0) scale(1);opacity:1}100%{transform:translate(var(--dx),var(--dy)) scale(0);opacity:0}}
+.floatheart{position:fixed;pointer-events:none;z-index:5;animation:floatUp 4s ease-in forwards}
+@keyframes floatUp{0%{transform:translateY(0) scale(.5);opacity:0}10%{transform:translateY(-28px) scale(1);opacity:1}90%{opacity:1}100%{transform:translateY(-90vh) scale(.6);opacity:0}}
+@keyframes hb{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.25);opacity:.95}}
+
+/* ── SHARED NEXT BTN (fixed bottom, slide up) ── */
+.next-fixed{position:fixed;bottom:clamp(20px,4vh,44px);left:50%;transform:translateX(-50%) translateY(110px);z-index:30;opacity:0;transition:transform .6s cubic-bezier(.34,1.56,.64,1),opacity .5s;pointer-events:none}
+.next-fixed.show{opacity:1;transform:translateX(-50%) translateY(0);pointer-events:auto}
+
+/* Landscape phone tweaks */
+@media(max-height:500px) and (orientation:landscape){
+  #textDisplay{width:58vw;max-width:400px;padding:12px 16px}
+  #textContent{font-size:clamp(16px,5vmin,26px)}
+  #giftGif{max-height:88vh;width:auto}
+  .next-fixed{bottom:10px}
+}
+
+/* ══ S3 GALLERY ══ */
+#s3{background:linear-gradient(160deg,#050d1a,#0a1628,#0d1b3e)}
+.gallery-wrap{display:flex;flex-direction:column;align-items:center;width:100%;padding:clamp(20px,4vh,40px) 16px}
+.section-title{font-family:'Pacifico',cursive;font-size:clamp(20px,5vw,30px);background:linear-gradient(135deg,#87ceeb,#4169e1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-align:center;margin-bottom:clamp(16px,3vh,28px)}
+.polaroid{background:#fff;border-radius:4px;padding:10px 10px 36px;box-shadow:0 10px 40px rgba(0,0,0,.5);max-width:min(82vw,340px);width:100%;animation:photoIn .5s cubic-bezier(.34,1.56,.64,1)}
+@keyframes photoIn{from{transform:scale(.8) rotate(-3deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
+.polaroid img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;background:linear-gradient(135deg,#c8e6ff,#87ceeb22);display:block}
+.polaroid .ph-placeholder{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,#1e90ff11,#4169e122);display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:2px;color:#4169e1;font-size:14px;gap:8px}
+.polaroid .ph-placeholder span{font-size:40px}
+.pcap{text-align:center;margin-top:6px;font-family:'Dancing Script',cursive;font-size:clamp(15px,4vw,19px);color:#555;font-weight:600}
+.gallery-nav{display:flex;align-items:center;gap:18px;margin-top:16px}
+.nav-btn{background:rgba(135,206,235,.12);border:1px solid rgba(135,206,235,.25);color:#87ceeb;width:44px;height:44px;border-radius:50%;font-size:18px;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center}
+.nav-btn:hover{background:rgba(65,105,225,.25);transform:scale(1.1)}
+.nav-btn:disabled{opacity:.3;cursor:default;transform:none}
+.gcounter{color:rgba(255,255,255,.55);font-size:13px;min-width:44px;text-align:center}
+#galleryNext{margin-top:20px;display:none}
+#galleryNext.show{display:inline-flex}
+
+/* ══ S4 CAKE ══ */
+#s4{background:linear-gradient(160deg,#050d1a,#0d1b3e)}
+.cake-wrap{display:flex;flex-direction:column;align-items:center}
+.cake-zone{display:flex;flex-direction:column;align-items:center}
+.candles-row{display:flex;justify-content:center;gap:clamp(10px,3vw,20px);margin-bottom:6px}
+.candle-w{display:flex;flex-direction:column;align-items:center}
+.flame{width:10px;height:15px;background:radial-gradient(ellipse at 50% 80%,#fff,#ffe066 40%,#ff9900 80%);border-radius:50% 50% 30% 30%;animation:flicker .5s ease-in-out infinite alternate;margin-bottom:2px}
+@keyframes flicker{0%{transform:scaleX(1) scaleY(1)}100%{transform:scaleX(.85) scaleY(1.12) skew(3deg)}}
+.candle{width:9px;height:clamp(22px,4vw,30px);background:linear-gradient(180deg,#87ceeb,#4169e1);border-radius:3px}
+.layer{border-radius:10px;margin:2px auto;display:flex;align-items:center;justify-content:center}
+.l1{width:clamp(190px,52vw,260px);height:clamp(48px,8vw,62px);background:linear-gradient(135deg,#1e90ff,#4169e1)}
+.l2{width:clamp(150px,41vw,200px);height:clamp(42px,7vw,54px);background:linear-gradient(135deg,#4169e1,#87ceeb)}
+.l3{width:clamp(110px,30vw,150px);height:clamp(36px,6vw,48px);background:linear-gradient(135deg,#87ceeb,#1e90ff)}
+.layer-text{color:rgba(255,255,255,.65);font-size:clamp(8px,1.8vw,11px);font-weight:600;letter-spacing:.5px}
+.cake-plate{width:clamp(210px,56vw,280px);height:10px;background:rgba(135,206,235,.25);border-radius:50%;margin-top:6px;box-shadow:0 4px 20px rgba(30,144,255,.25)}
+.cake-sparks{display:flex;gap:clamp(6px,2vw,14px);margin-top:16px;font-size:clamp(16px,4vw,22px)}
+.spark-em{animation:sparkSpin 2s ease-in-out infinite;animation-delay:var(--dl,0s)}
+@keyframes sparkSpin{0%,100%{transform:scale(1) rotate(0)}50%{transform:scale(1.3) rotate(180deg)}}
+
+/* ══ S5 ROSES ══ */
+#s5{background:linear-gradient(160deg,#050d1a,#080d20,#0a0f2e)}
+.rose-wrap{display:flex;flex-direction:column;align-items:center;text-align:center;padding:clamp(20px,4vh,40px) 16px;max-width:500px;width:100%}
+.bouquet{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(6px,2vw,14px);max-width:300px;width:100%;margin:8px 0 16px}
+.rose-item{font-size:clamp(34px,9vw,52px);filter:hue-rotate(220deg) brightness(.85) saturate(1.5);animation:roseSway var(--d,3s) ease-in-out infinite;animation-delay:var(--dl,0s);display:block;text-align:center}
+@keyframes roseSway{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(2deg)}}
+.rose-msg{color:rgba(255,255,255,.82);font-size:clamp(14px,3.3vw,16px);line-height:1.85;max-width:380px}
+.rose-msg em{color:#87ceeb;font-style:normal;font-weight:600}
+.float-petal{position:fixed;pointer-events:none;font-size:16px;filter:hue-rotate(220deg);opacity:.5;animation:petalFall var(--d,7s) linear infinite;animation-delay:var(--dl,0s)}
+@keyframes petalFall{0%{transform:translateY(-30px) rotate(0deg);opacity:.5}100%{transform:translateY(110vh) rotate(400deg);opacity:0}}
+
+/* ══ S6 LETTER ══ */
+#s6{background:linear-gradient(160deg,#0a0a1a,#0d1b3e,#0a1628)}
+.stars{position:fixed;inset:0;pointer-events:none;z-index:0}
+.star{position:absolute;border-radius:50%;background:#fff;animation:tw var(--d,3s) ease-in-out infinite;animation-delay:var(--dl,0s)}
+@keyframes tw{0%,100%{opacity:.15;transform:scale(1)}50%{opacity:.9;transform:scale(1.4)}}
+.lwrap{position:relative;z-index:10;width:100%;display:flex;flex-direction:column;align-items:center;padding:clamp(28px,5vh,56px) 16px clamp(36px,6vh,72px)}
+.letter{background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(135,206,235,.05));border:1px solid rgba(135,206,235,.2);backdrop-filter:blur(24px);border-radius:24px;max-width:580px;width:100%;padding:clamp(26px,5vw,50px) clamp(22px,5vw,46px);box-shadow:0 0 80px rgba(65,105,225,.18)}
+.to-line{font-size:12px;color:#87ceeb;letter-spacing:1px;text-transform:uppercase;margin-bottom:5px;opacity:.8}
+.letter h1{font-size:clamp(22px,5.5vw,36px);font-weight:800;background:linear-gradient(135deg,#87ceeb,#fff,#4169e1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:18px;line-height:1.2}
+.ldiv{height:1px;background:linear-gradient(90deg,transparent,rgba(135,206,235,.35),transparent);margin:14px 0}
+.lbody{color:rgba(255,255,255,.83);font-size:clamp(13px,3vw,16px);line-height:1.9}
+.lbody p{margin-bottom:12px}
+.hi{color:#87ceeb;font-size:clamp(15px,3.5vw,18px);font-weight:700;display:block;margin-bottom:14px}
+.star-line{color:#ffd700;font-size:12px;letter-spacing:.5px}
+.emojis{font-size:clamp(22px,5.5vw,30px);text-align:center;margin:18px 0;letter-spacing:6px}
+.signoff{text-align:right;margin-top:20px;color:rgba(255,255,255,.65);font-size:13px}
+.signoff strong{color:#87ceeb;font-size:clamp(14px,3.5vw,17px);display:block;margin-top:3px}
