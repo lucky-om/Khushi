@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<!-- Coded by Lucky -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>Happy Birthday Khushi 🎁 | 2026</title>
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="theme-color" content="#1e90ff">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>">
+    <link href="fonts/googleapis/css/family=Pacifico&display=swap.css" rel="stylesheet">
+    <link href="fonts/googleapis/css2/family=Dancing+Script_wght@400;500;600;700&display=swap.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- ══════════════════════════════════
+     S1 — LANDING (BLUE)
+══════════════════════════════════ -->
+    <div class="sec" id="s1">
+        <span class="bgh" style="font-size:26px;left:6%;top:10%;--d:7s;--dl:-2s">💙</span>
+        <span class="bgh" style="font-size:20px;left:84%;top:16%;--d:9s;--dl:-4s">🌸</span>
+        <span class="bgh" style="font-size:22px;left:10%;top:74%;--d:8s;--dl:-1s">✨</span>
+        <span class="bgh" style="font-size:18px;left:82%;top:70%;--d:6s;--dl:-3s">💫</span>
+        <span class="bgh" style="font-size:24px;left:3%;top:46%;--d:8s;--dl:-6s">💝</span>
+        <span class="bgh" style="font-size:16px;left:50%;top:5%;--d:10s;--dl:-5s">🌟</span>
+        <div class="card1">
+            <span class="hbd-icon">🎁</span>
+            <h1>A Cutiepie was born today,<br><span id="ageText"></span> years ago!</h1>
+            <p>Yes, it's YOU! A little surprise awaits… 🌟</p>
+            <button class="btn btn-blue" id="startBtn">Start the Surprise</button>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════
+     S2 — MATRIX SURPRISE
+══════════════════════════════════ -->
+    <div class="sec hidden" id="s2">
+        <canvas id="matrix-rain" aria-hidden="true"></canvas>
+        <div id="countdown" aria-live="polite"></div>
+        <div id="textDisplay">
+            <div id="textContent"></div>
+        </div>
+        <img id="giftGif" src="gifs/1.gif" alt="Happy Birthday Khushi!" draggable="false">
+        <div id="fireworks" aria-hidden="true"></div>
+        <button class="btn btn-blue next-fixed" id="gifNext">View Photos</button>
+    </div>
+
+    <!-- ══════════════════════════════════
+     S3 — PHOTO GALLERY
+══════════════════════════════════ -->
+    <div class="sec scrollable hidden" id="s3">
+        <!-- Glowing orb backgrounds -->
+        <div class="orb"
+            style="width:300px;height:300px;background:rgba(30,144,255,.07);left:-80px;top:10%;--d:9s;--dl:-2s"></div>
+        <div class="orb"
+            style="width:250px;height:250px;background:rgba(135,206,235,.06);right:-60px;bottom:15%;--d:11s;--dl:-4s">
+        </div>
+        <div class="orb"
+            style="width:200px;height:200px;background:rgba(65,105,225,.08);left:30%;top:60%;--d:8s;--dl:-1s"></div>
+
+        <div class="gallery-wrap">
+            <h2 class="section-title">📸 Khushi's Magic Gallery</h2>
+
+            <div class="stack-gallery" id="stackGallery">
+                <!-- Polaroids will be injected here via JS -->
+            </div>
+
+            <p
+                style="color:rgba(255,255,255,.7);font-size:14px;margin-top:20px;text-align:center;animation:pulseText 2s infinite;">
+                (Tap the photo to see the next one)</p>
+
+            <button class="btn btn-blue" id="galleryNext" style="margin-top: 15px; display: none;">Next</button>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════
+     S4 — CAKE PAGE
+══════════════════════════════════ -->
+    <div class="sec hidden" id="s4">
+        <!-- Starfield bg -->
+        <div class="star-bg" id="cakeStars"></div>
+
+        <!-- Falling blue rose petals -->
+        <span class="rose-petal" style="left:3%;--d:7s;--dl:0s">🌹</span>
+        <span class="rose-petal" style="left:18%;--d:9s;--dl:-2s">🌸</span>
+        <span class="rose-petal" style="left:40%;--d:6s;--dl:-4s">🌹</span>
+        <span class="rose-petal" style="left:62%;--d:8s;--dl:-1s">🌸</span>
+        <span class="rose-petal" style="left:80%;--d:7s;--dl:-3s">🌹</span>
+        <span class="rose-petal" style="left:94%;--d:10s;--dl:-5s">🌸</span>
+
+        <!-- Glow ring behind cake -->
+        <div class="cake-glow"></div>
+
+        <div class="cake-wrap">
+            <h2 class="section-title">🎂 Make a Wish, Khushi</h2>
+            <div class="cake-zone">
+                <!-- Candles -->
+                <div class="candles-row">
+                    <div class="candle-w">
+                        <div class="flame"></div>
+                        <div class="candle"></div>
+                    </div>
+                    <div class="candle-w">
+                        <div class="flame" style="animation-delay:.1s"></div>
+                        <div class="candle"></div>
+                    </div>
+                    <div class="candle-w">
+                        <div class="flame" style="animation-delay:.2s"></div>
+                        <div class="candle"></div>
+                    </div>
+                    <div class="candle-w">
+                        <div class="flame" style="animation-delay:.05s"></div>
+                        <div class="candle"></div>
+                    </div>
+                    <div class="candle-w">
+                        <div class="flame" style="animation-delay:.15s"></div>
+                        <div class="candle"></div>
+                    </div>
+                </div>
+                <!-- Layers -->
+                <div class="layer l3"><span class="layer-text">✦ HAPPY ✦</span></div>
+                <div class="layer l2"><span class="layer-text">✦ BIRTHDAY ✦</span></div>
+                <div class="layer l1"><span class="layer-text">✦ KHUSHI 💙 ✦</span></div>
+                <div class="cake-plate"></div>
+            </div>
+            <p class="cake-sub">Close your eyes and make a wish! 🌙</p>
+            <button class="btn btn-blue" style="margin-top:22px" id="cakeNext">Read Your Letter</button>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════
+     S5 — BIRTHDAY LETTER
+══════════════════════════════════ -->
+    <div class="sec scrollable hidden" id="s5">
+        <!-- Starfield -->
+        <div class="star-bg" id="stars"></div>
+
+        <!-- Floating blue roses -->
+        <span class="letter-rose" style="left:4%;top:20%;--d:7s;--dl:-2s">🌹</span>
+        <span class="letter-rose" style="left:88%;top:15%;--d:9s;--dl:-4s">🌸</span>
+        <span class="letter-rose" style="left:8%;top:65%;--d:8s;--dl:-1s">🌹</span>
+        <span class="letter-rose" style="left:85%;top:60%;--d:6s;--dl:-3s">🌸</span>
+        <span class="letter-rose" style="left:50%;top:4%;--d:10s;--dl:-5s">🌹</span>
+        <span class="letter-rose" style="left:92%;top:40%;--d:7s;--dl:-6s">🌸</span>
+
+        <div class="lwrap">
+            <div class="letter">
+                <p class="to-line">💌 A little letter for…</p>
+                <h1>Happy Birthday,<br>Khushi! 🎉💙</h1>
+                <div class="ldiv"></div>
+                <div class="lbody">
+                    <span class="hi">Dear Khushi,</span>
+                    <p>On this beautiful day, I want you to know how incredibly special you are to me. You're not just my bestfriend — you're one of the most amazing humans I've ever met. 🌟</p>
+                    <p>Your smile lights up every room, and your friendship is one of my most treasured gifts. 💙</p>
+                    <p class="star-line">✦ ✦ ✦ Thank you for always being there ✦ ✦ ✦</p>
+                    <p>May this year bring you everything your heart desires. Keep shining, keep being amazing, and never forget how deeply loved you are. Always. 💙🌷</p>
+                </div>
+                <div class="ldiv"></div>
+                <div class="signoff">With all the love in the world,<br><strong>Your Bestfriend 💙</strong></div>
+            </div>
+            <button class="btn btn-blue" style="margin-top:28px" id="letterNext">Next</button>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════
+     S6 — FINAL OUTRO
+══════════════════════════════════ -->
+    <div class="sec scrollable hidden" id="s6">
+        <!-- Starfield -->
+        <div class="star-bg" id="s6Stars"></div>
+
+        <div class="lwrap">
+            <div class="letter" style="text-align: center;">
+                <h1>Lots of love for you ❤️</h1>
+                <img src="gifs/2.gif" alt="Lots of love" style="width: 100%; border-radius: 12px; margin-bottom: 20px;">
+                <h2
+                    style="color:#87ceeb; font-size:clamp(18px,4vw,24px); margin-bottom: 12px; font-family:'Dancing Script',cursive;">
+                    Once again, Happyy Birthdayy Khushi! 💙</h2>
+                <p style="color:rgba(255,255,255,.83); font-size:clamp(14px,3.5vw,18px);">Hope you loved this website 🌸
+                </p>
+            </div>
+            <button class="btn btn-blue" style="margin-top:28px" id="replayBtn">Replay from Start</button>
+            <div class="made-by">Made with ❤️ by Lucky<br>&copy; 2026</div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
