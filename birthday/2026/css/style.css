@@ -1,4 +1,5 @@
 /* Happy Birthday Khushi 2026 */
+/* Coded by Lucky */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html,body{width:100%;height:100%;overflow:hidden;font-family:'Segoe UI',Arial,sans-serif}
 img{user-select:none;-webkit-user-select:none;max-width:100%;display:block}
@@ -136,6 +137,8 @@ img{user-select:none;-webkit-user-select:none;max-width:100%;display:block}
 /* Floating roses on letter page */
 .letter-rose{position:fixed;pointer-events:none;font-size:20px;filter:hue-rotate(220deg) brightness(.85);opacity:.35;animation:lrFloat var(--d,8s) ease-in-out infinite;animation-delay:var(--dl,0s);z-index:0}
 @keyframes lrFloat{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-20px) rotate(5deg)}}
+
+.made-by { margin-top: 40px; color: rgba(255, 255, 255, 0.4); font-size: 13px; text-align: center; line-height: 1.6; letter-spacing: 0.5px; animation: photoIn 1s ease-in; }
 
 /* Landscape phone tweaks */
 @media(max-height:500px) and (orientation:landscape){

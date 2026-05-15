@@ -1,4 +1,5 @@
 /* Happy Birthday Khushi 2026 */
+/* Coded by Lucky */
 (function(){
 'use strict';
 
