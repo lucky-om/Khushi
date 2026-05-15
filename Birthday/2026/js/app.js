@@ -168,15 +168,17 @@ function buildGallery() {
 }
 var galleryBuilt = false;
 
-/* ── STARS (S6) ── */
-var starsBuilt = false;
-function initStars() {
-  if (starsBuilt) return; starsBuilt = true;
-  var c = document.getElementById('stars');
-  for (var i = 0; i < 120; i++) {
+/* ── STARS ── */
+var starsBuilt = {};
+function initStars(containerId) {
+  if (starsBuilt[containerId]) return;
+  starsBuilt[containerId] = true;
+  var c = document.getElementById(containerId);
+  if (!c) return;
+  for (var i = 0; i < 100; i++) {
     var s = document.createElement('div'); s.className = 'star';
     var sz = Math.random()*2.5+0.5;
-    s.style.cssText = 'width:'+sz+'px;height:'+sz+'px;left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;--d:'+(2+Math.random()*4)+'s;--dl:-'+(Math.random()*4)+'s';
+    s.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;--d:'+(2+Math.random()*4)+'s;--dl:-'+(Math.random()*4)+'s';
     c.appendChild(s);
   }
 }
@@ -188,16 +190,20 @@ document.getElementById('startBtn').addEventListener('click', function(){
 });
 
 document.getElementById('gifNext').addEventListener('click', function(){
-  if (!galleryBuilt){ buildGallery(); galleryBuilt=true; }
-  curPhoto=0; buildGallery(); galleryBuilt=true;
+  curPhoto = 0;
+  if (!galleryBuilt) { buildGallery(); galleryBuilt = true; }
   show('s3');
 });
 
-document.getElementById('galleryNext').addEventListener('click', function(){ show('s4'); });
+document.getElementById('galleryNext').addEventListener('click', function(){
+  initStars('cakeStars');
+  show('s4');
+});
 
-document.getElementById('cakeNext').addEventListener('click', function(){ show('s5'); });
-
-document.getElementById('rosesNext').addEventListener('click', function(){ initStars(); show('s6'); });
+document.getElementById('cakeNext').addEventListener('click', function(){
+  initStars('stars');
+  show('s5');
+});
 
 document.getElementById('replayBtn').addEventListener('click', function(){
   show('s1'); music.currentTime=0; music.play().catch(function(){});

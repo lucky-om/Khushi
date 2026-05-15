@@ -13,23 +13,18 @@
 </head>
 <body>
 
-<!-- ══════════════════════════════════════
-     AUDIO
-══════════════════════════════════════ -->
-<audio id="bgMusic" loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
+<audio id="bgMusic" loop><source src="music.mp3" type="audio/mpeg"></audio>
 
-<!-- ══════════════════════════════════════
-     S1 — LANDING (BLUE THEME)
-══════════════════════════════════════ -->
+<!-- ══════════════════════════════════
+     S1 — LANDING (BLUE)
+══════════════════════════════════ -->
 <div class="sec" id="s1">
   <span class="bgh" style="font-size:26px;left:6%;top:10%;--d:7s;--dl:-2s">💙</span>
   <span class="bgh" style="font-size:20px;left:84%;top:16%;--d:9s;--dl:-4s">🌸</span>
   <span class="bgh" style="font-size:22px;left:10%;top:74%;--d:8s;--dl:-1s">✨</span>
   <span class="bgh" style="font-size:18px;left:82%;top:70%;--d:6s;--dl:-3s">💫</span>
-  <span class="bgh" style="font-size:16px;left:50%;top:5%;--d:10s;--dl:-5s">🌟</span>
   <span class="bgh" style="font-size:24px;left:3%;top:46%;--d:8s;--dl:-6s">💝</span>
+  <span class="bgh" style="font-size:16px;left:50%;top:5%;--d:10s;--dl:-5s">🌟</span>
   <div class="card1">
     <span class="hbd-icon">🎁</span>
     <h1>A Cutiepie was born today,<br><span id="ageText"></span> years ago!</h1>
@@ -38,9 +33,9 @@
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
+<!-- ══════════════════════════════════
      S2 — MATRIX SURPRISE
-══════════════════════════════════════ -->
+══════════════════════════════════ -->
 <div class="sec hidden" id="s2">
   <canvas id="matrix-rain" aria-hidden="true"></canvas>
   <div id="countdown" aria-live="polite"></div>
@@ -50,45 +45,67 @@
   <button class="btn btn-blue next-fixed" id="gifNext">📸 View Photos &rarr;</button>
 </div>
 
-<!-- ══════════════════════════════════════
+<!-- ══════════════════════════════════
      S3 — PHOTO GALLERY
-══════════════════════════════════════ -->
+══════════════════════════════════ -->
 <div class="sec scrollable hidden" id="s3">
+  <!-- Glowing orb backgrounds -->
+  <div class="orb" style="width:300px;height:300px;background:rgba(30,144,255,.07);left:-80px;top:10%;--d:9s;--dl:-2s"></div>
+  <div class="orb" style="width:250px;height:250px;background:rgba(135,206,235,.06);right:-60px;bottom:15%;--d:11s;--dl:-4s"></div>
+  <div class="orb" style="width:200px;height:200px;background:rgba(65,105,225,.08);left:30%;top:60%;--d:8s;--dl:-1s"></div>
+
   <div class="gallery-wrap">
     <h2 class="section-title">📸 Khushi's Magic Gallery</h2>
-    <div class="polaroid">
+
+    <div class="polaroid photo-glow" id="polaroidFrame">
       <img id="gPhoto" src="" alt="Khushi" style="opacity:0;transition:opacity .4s">
       <div id="phPlaceholder" class="ph-placeholder" style="display:none">
         <span>🖼️</span>
-        <p style="color:#4169e1;font-size:13px;padding:0 10px;text-align:center">Add photo files to<br><strong>photos/</strong> folder</p>
+        <p>Add your photos to<br><strong>photos/photo1.jpg</strong></p>
       </div>
       <p class="pcap" id="gCap"></p>
     </div>
+
     <div class="gallery-nav">
-      <button class="nav-btn" id="gPrev" disabled>&#8592;</button>
+      <button class="nav-btn" id="gPrev" aria-label="Previous photo">&#8592;</button>
       <span class="gcounter" id="gCounter">1 / 5</span>
-      <button class="nav-btn" id="gNext">&#8594;</button>
+      <button class="nav-btn" id="gNext" aria-label="Next photo">&#8594;</button>
     </div>
+
     <button class="btn btn-blue" id="galleryNext">🎂 Next &rarr;</button>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
+<!-- ══════════════════════════════════
      S4 — CAKE PAGE
-══════════════════════════════════════ -->
+══════════════════════════════════ -->
 <div class="sec hidden" id="s4">
+  <!-- Starfield bg -->
+  <div class="star-bg" id="cakeStars"></div>
+
+  <!-- Falling blue rose petals -->
+  <span class="rose-petal" style="left:3%;--d:7s;--dl:0s">🌹</span>
+  <span class="rose-petal" style="left:18%;--d:9s;--dl:-2s">🌸</span>
+  <span class="rose-petal" style="left:40%;--d:6s;--dl:-4s">🌹</span>
+  <span class="rose-petal" style="left:62%;--d:8s;--dl:-1s">🌸</span>
+  <span class="rose-petal" style="left:80%;--d:7s;--dl:-3s">🌹</span>
+  <span class="rose-petal" style="left:94%;--d:10s;--dl:-5s">🌸</span>
+
+  <!-- Glow ring behind cake -->
+  <div class="cake-glow"></div>
+
   <div class="cake-wrap">
     <h2 class="section-title">🎂 Make a Wish, Khushi!</h2>
     <div class="cake-zone">
       <!-- Candles -->
       <div class="candles-row">
         <div class="candle-w"><div class="flame"></div><div class="candle"></div></div>
-        <div class="candle-w"><div class="flame"></div><div class="candle"></div></div>
-        <div class="candle-w"><div class="flame"></div><div class="candle"></div></div>
-        <div class="candle-w"><div class="flame"></div><div class="candle"></div></div>
-        <div class="candle-w"><div class="flame"></div><div class="candle"></div></div>
+        <div class="candle-w"><div class="flame" style="animation-delay:.1s"></div><div class="candle"></div></div>
+        <div class="candle-w"><div class="flame" style="animation-delay:.2s"></div><div class="candle"></div></div>
+        <div class="candle-w"><div class="flame" style="animation-delay:.05s"></div><div class="candle"></div></div>
+        <div class="candle-w"><div class="flame" style="animation-delay:.15s"></div><div class="candle"></div></div>
       </div>
-      <!-- Cake layers -->
+      <!-- Layers -->
       <div class="layer l3"><span class="layer-text">✦ HAPPY ✦</span></div>
       <div class="layer l2"><span class="layer-text">✦ BIRTHDAY ✦</span></div>
       <div class="layer l1"><span class="layer-text">✦ KHUSHI 💙 ✦</span></div>
@@ -101,46 +118,26 @@
       <span class="spark-em" style="--dl:.9s">⭐</span>
       <span class="spark-em" style="--dl:1.2s">✨</span>
     </div>
-    <p style="color:rgba(255,255,255,.65);font-size:clamp(13px,3vw,15px);margin-top:14px;text-align:center">Close your eyes and make a wish! 🌙</p>
-    <button class="btn btn-blue" style="margin-top:22px" id="cakeNext">🌹 Next &rarr;</button>
+    <p class="cake-sub">Close your eyes and make a wish! 🌙</p>
+    <button class="btn btn-blue" style="margin-top:22px" id="cakeNext">💌 Read Your Letter &rarr;</button>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
-     S5 — BLUE ROSE BOUQUET
-══════════════════════════════════════ -->
-<div class="sec hidden" id="s5">
-  <!-- Falling petals -->
-  <span class="float-petal" style="left:5%;--d:7s;--dl:0s">🌹</span>
-  <span class="float-petal" style="left:20%;--d:9s;--dl:-2s">🌸</span>
-  <span class="float-petal" style="left:38%;--d:6s;--dl:-4s">🌹</span>
-  <span class="float-petal" style="left:60%;--d:8s;--dl:-1s">🌸</span>
-  <span class="float-petal" style="left:78%;--d:7s;--dl:-3s">🌹</span>
-  <span class="float-petal" style="left:92%;--d:10s;--dl:-5s">🌸</span>
+<!-- ══════════════════════════════════
+     S5 — BIRTHDAY LETTER
+══════════════════════════════════ -->
+<div class="sec scrollable hidden" id="s5">
+  <!-- Starfield -->
+  <div class="star-bg" id="stars"></div>
 
-  <div class="rose-wrap">
-    <h2 class="section-title">🌹 A Bouquet for You</h2>
-    <div class="bouquet">
-      <span class="rose-item" style="--d:3s;--dl:0s">🌹</span>
-      <span class="rose-item" style="--d:3.5s;--dl:.3s">🌹</span>
-      <span class="rose-item" style="--d:2.8s;--dl:.6s">🌹</span>
-      <span class="rose-item" style="--d:3.2s;--dl:.9s">🌹</span>
-      <span class="rose-item" style="--d:3.8s;--dl:.2s">🌹</span>
-      <span class="rose-item" style="--d:2.9s;--dl:.5s">🌹</span>
-    </div>
-    <p class="rose-msg">These blue roses are for you, Khushi —<br>
-    as <em>rare</em> and <em>beautiful</em> as you are. 💙<br>
-    May your life always be filled with<br>
-    <em>love, colour, and endless joy.</em> 🌸</p>
-    <button class="btn btn-blue" style="margin-top:20px" id="rosesNext">💌 Read Your Letter &rarr;</button>
-  </div>
-</div>
+  <!-- Floating blue roses -->
+  <span class="letter-rose" style="left:4%;top:20%;--d:7s;--dl:-2s">🌹</span>
+  <span class="letter-rose" style="left:88%;top:15%;--d:9s;--dl:-4s">🌸</span>
+  <span class="letter-rose" style="left:8%;top:65%;--d:8s;--dl:-1s">🌹</span>
+  <span class="letter-rose" style="left:85%;top:60%;--d:6s;--dl:-3s">🌸</span>
+  <span class="letter-rose" style="left:50%;top:4%;--d:10s;--dl:-5s">🌹</span>
+  <span class="letter-rose" style="left:92%;top:40%;--d:7s;--dl:-6s">🌸</span>
 
-<!-- ══════════════════════════════════════
-     S6 — BIRTHDAY LETTER
-══════════════════════════════════════ -->
-<div class="sec scrollable hidden" id="s6">
-  <div class="stars" id="stars"></div>
   <div class="lwrap">
     <div class="letter">
       <p class="to-line">💌 A little letter for…</p>
@@ -154,7 +151,7 @@
         <p>May this year bring you everything your heart desires — love, laughter, adventures, and all the happiness you so truly deserve. The world is a better place because you're in it. 🌏</p>
         <p>Keep shining, keep being the amazing person you are — and never forget that you are deeply loved. Always. 💙🌷</p>
       </div>
-      <div class="emojis">🎂 🎁 🎊 🌸 💙</div>
+      <div class="emojis">🎂 🎁 🎊 🌸 💙 🌹</div>
       <div class="ldiv"></div>
       <div class="signoff">With all the love in the world,<br><strong>Your Bestfriend 💙</strong></div>
     </div>
