@@ -237,7 +237,7 @@ document.getElementById('letterNext').addEventListener('click', function(){
 });
 
 document.getElementById('replayBtn').addEventListener('click', function(){
-  show('s1'); music.currentTime=0; music.play().catch(function(){});
+  window.location.reload();
 });
 
 })();
