@@ -205,6 +205,11 @@ document.getElementById('cakeNext').addEventListener('click', function(){
   show('s5');
 });
 
+document.getElementById('letterNext').addEventListener('click', function(){
+  initStars('s6Stars');
+  show('s6');
+});
+
 document.getElementById('replayBtn').addEventListener('click', function(){
   show('s1'); music.currentTime=0; music.play().catch(function(){});
 });
