@@ -33,7 +33,7 @@ function show(id) {
 }
 
 /* ── MATRIX RAIN ── */
-var matrixStarted = false;
+  var matrixStarted = false;
 function initMatrix() {
   if (matrixStarted) return; matrixStarted = true;
   var canvas = document.getElementById('matrix-rain');
@@ -42,7 +42,7 @@ function initMatrix() {
   var cols, drops, fontSize;
   function resize() {
     canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-    fontSize = Math.max(12, Math.floor(Math.min(window.innerWidth, window.innerHeight) / 40));
+    fontSize = Math.max(18, Math.floor(Math.min(window.innerWidth, window.innerHeight) / 22));
     cols = Math.floor(canvas.width / fontSize);
     drops = []; for (var i = 0; i < cols; i++) drops[i] = 1;
   }
@@ -55,7 +55,7 @@ function initMatrix() {
       if (drops[i]*fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
       drops[i]++;
     }
-    requestAnimationFrame(draw);
+    setTimeout(function(){ requestAnimationFrame(draw); }, 60); // Slower speed
   }
   window.addEventListener('resize', resize); resize(); draw();
 }
@@ -127,44 +127,67 @@ function runSequence() {
 }
 
 /* ── GALLERY (S3) ── */
-var curPhoto = 0;
 function buildGallery() {
-  var img = document.getElementById('gPhoto');
-  var cap = document.getElementById('gCap');
-  var ctr = document.getElementById('gCounter');
-  var prev = document.getElementById('gPrev');
-  var next = document.getElementById('gNext');
-  var gallNext = document.getElementById('galleryNext');
-  function renderPhoto(idx) {
-    img.style.opacity = '0';
-    img.src = '';
-    var p = PHOTOS[idx];
-    // try to load; if fails, show placeholder
-    var tmpImg = new Image();
-    tmpImg.onload = function(){
-      img.src = p.src;
-      document.getElementById('phPlaceholder').style.display = 'none';
-      img.style.display = 'block';
-      img.style.opacity = '1';
-    };
-    tmpImg.onerror = function(){
-      img.style.display = 'none';
-      document.getElementById('phPlaceholder').style.display = 'flex';
-    };
-    tmpImg.src = p.src;
+  var container = document.getElementById('stackGallery');
+  var nextBtn = document.getElementById('galleryNext');
+  container.innerHTML = '';
+  
+  var cards = [];
+  var total = PHOTOS.length;
+  var clicks = 0;
+
+  PHOTOS.forEach(function(p, i) {
+    var card = document.createElement('div');
+    card.className = 'polaroid photo-glow stack-card';
+    card.style.zIndex = total - i;
+    
+    // Add random slight rotation for stack effect
+    var rot = (Math.random() * 8) - 4; 
+    card.style.setProperty('--rot', rot + 'deg');
+    card.style.transform = 'rotate(' + rot + 'deg)';
+    
+    var img = new Image();
+    img.src = p.src;
+    img.alt = p.cap;
+    img.style.opacity = '1';
+    
+    var placeholder = document.createElement('div');
+    placeholder.className = 'ph-placeholder';
+    placeholder.innerHTML = '<span>🖼️</span><p>Add your photos to<br><strong>photos/</strong> folder</p>';
+    
+    img.onload = function() { placeholder.style.display = 'none'; };
+    img.onerror = function() { img.style.display = 'none'; placeholder.style.display = 'flex'; };
+
+    var cap = document.createElement('p');
+    cap.className = 'pcap';
     cap.textContent = p.cap;
-    ctr.textContent = (idx+1)+' / '+PHOTOS.length;
-    prev.disabled = idx === 0;
-    next.style.display = idx === PHOTOS.length-1 ? 'none' : 'flex';
-    if (idx === PHOTOS.length-1) {
-      gallNext.classList.add('show');
-    } else {
-      gallNext.classList.remove('show');
-    }
-  }
-  prev.addEventListener('click', function(){ if(curPhoto>0){ curPhoto--; renderPhoto(curPhoto); } });
-  next.addEventListener('click', function(){ if(curPhoto<PHOTOS.length-1){ curPhoto++; renderPhoto(curPhoto); } });
-  renderPhoto(0);
+
+    card.appendChild(img);
+    card.appendChild(placeholder);
+    card.appendChild(cap);
+    container.appendChild(card);
+    cards.push(card);
+
+    card.addEventListener('click', function() {
+      clicks++;
+      if(clicks >= total - 1) {
+        nextBtn.style.display = 'inline-flex';
+      }
+      // Animate card going to back
+      card.style.transform = 'translateX(120%) rotate(' + (rot + 15) + 'deg)';
+      card.style.opacity = '0';
+      
+      setTimeout(function() {
+        container.prepend(card); // move to bottom of DOM
+        cards.forEach(function(c, idx) {
+           // Recalculate z-index: first in DOM is lowest z-index
+           c.style.zIndex = Array.from(container.children).indexOf(c);
+        });
+        card.style.transform = 'translateX(0) rotate(' + rot + 'deg)';
+        card.style.opacity = '1';
+      }, 300);
+    });
+  });
 }
 var galleryBuilt = false;
 
@@ -190,7 +213,6 @@ document.getElementById('startBtn').addEventListener('click', function(){
 });
 
 document.getElementById('gifNext').addEventListener('click', function(){
-  curPhoto = 0;
   if (!galleryBuilt) { buildGallery(); galleryBuilt = true; }
   show('s3');
 });

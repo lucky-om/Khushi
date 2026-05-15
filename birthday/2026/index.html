@@ -42,7 +42,7 @@
   <div id="textDisplay"><div id="textContent"></div></div>
   <img id="giftGif" src="gifs/1.gif" alt="Happy Birthday Khushi!" draggable="false">
   <div id="fireworks" aria-hidden="true"></div>
-  <button class="btn btn-blue next-fixed" id="gifNext">📸 View Photos &rarr;</button>
+  <button class="btn btn-blue next-fixed" id="gifNext">📸 View Photos</button>
 </div>
 
 <!-- ══════════════════════════════════
@@ -57,22 +57,13 @@
   <div class="gallery-wrap">
     <h2 class="section-title">📸 Khushi's Magic Gallery</h2>
 
-    <div class="polaroid photo-glow" id="polaroidFrame">
-      <img id="gPhoto" src="" alt="Khushi" style="opacity:0;transition:opacity .4s">
-      <div id="phPlaceholder" class="ph-placeholder" style="display:none">
-        <span>🖼️</span>
-        <p>Add your photos to<br><strong>photos/photo1.jpg</strong></p>
-      </div>
-      <p class="pcap" id="gCap"></p>
+    <div class="stack-gallery" id="stackGallery">
+      <!-- Polaroids will be injected here via JS -->
     </div>
 
-    <div class="gallery-nav">
-      <button class="nav-btn" id="gPrev" aria-label="Previous photo">&#8592;</button>
-      <span class="gcounter" id="gCounter">1 / 5</span>
-      <button class="nav-btn" id="gNext" aria-label="Next photo">&#8594;</button>
-    </div>
+    <p style="color:rgba(255,255,255,.7);font-size:14px;margin-top:20px;text-align:center;animation:pulseText 2s infinite;">(Tap the photo to see the next one)</p>
 
-    <button class="btn btn-blue" id="galleryNext">🎂 Next &rarr;</button>
+    <button class="btn btn-blue" id="galleryNext" style="margin-top: 15px; display: none;">🎂 Next</button>
   </div>
 </div>
 
@@ -119,7 +110,7 @@
       <span class="spark-em" style="--dl:1.2s">✨</span>
     </div>
     <p class="cake-sub">Close your eyes and make a wish! 🌙</p>
-    <button class="btn btn-blue" style="margin-top:22px" id="cakeNext">💌 Read Your Letter &rarr;</button>
+    <button class="btn btn-blue" style="margin-top:22px" id="cakeNext">💌 Read Your Letter</button>
   </div>
 </div>
 
@@ -155,7 +146,7 @@
       <div class="ldiv"></div>
       <div class="signoff">With all the love in the world,<br><strong>Your Bestfriend 💙</strong></div>
     </div>
-    <button class="btn btn-blue" style="margin-top:28px" id="letterNext">💌 Next &rarr;</button>
+    <button class="btn btn-blue" style="margin-top:28px" id="letterNext">💌 Next</button>
   </div>
 </div>
 
