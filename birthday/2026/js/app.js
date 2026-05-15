@@ -141,10 +141,14 @@ function buildGallery() {
     card.className = 'polaroid photo-glow stack-card';
     card.style.zIndex = total - i;
     
-    // Add random slight rotation for stack effect
-    var rot = (Math.random() * 8) - 4; 
+    // Add random slight rotation and translation for stack effect
+    var rot = (Math.random() * 14) - 7; 
+    var dx = (Math.random() * 30) - 15;
+    var dy = (Math.random() * 30) - 15;
     card.style.setProperty('--rot', rot + 'deg');
-    card.style.transform = 'rotate(' + rot + 'deg)';
+    card.style.setProperty('--dx', dx + 'px');
+    card.style.setProperty('--dy', dy + 'px');
+    card.style.transform = 'translate(' + dx + 'px, ' + dy + 'px) rotate(' + rot + 'deg)';
     
     var img = new Image();
     img.src = p.src;
@@ -174,7 +178,7 @@ function buildGallery() {
         nextBtn.style.display = 'inline-flex';
       }
       // Animate card going to back
-      card.style.transform = 'translateX(120%) rotate(' + (rot + 15) + 'deg)';
+      card.style.transform = 'translate(' + (dx + 120) + 'px, ' + dy + 'px) rotate(' + (rot + 15) + 'deg)';
       card.style.opacity = '0';
       
       setTimeout(function() {
@@ -183,7 +187,7 @@ function buildGallery() {
            // Recalculate z-index: first in DOM is lowest z-index
            c.style.zIndex = Array.from(container.children).indexOf(c);
         });
-        card.style.transform = 'translateX(0) rotate(' + rot + 'deg)';
+        card.style.transform = 'translate(' + dx + 'px, ' + dy + 'px) rotate(' + rot + 'deg)';
         card.style.opacity = '1';
       }, 300);
     });
