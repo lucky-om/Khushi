@@ -19,9 +19,9 @@
         if (
             e.key === 'F12' ||
             e.key === 'F11' ||
-            (e.ctrlKey && ['u','U','s','S','a','A','c','C','p','P','i','I'].includes(e.key)) ||
-            (e.ctrlKey && e.shiftKey && ['i','I','j','J','c','C','k','K'].includes(e.key)) ||
-            (e.metaKey && ['u','U','s','S','a','A','c','C'].includes(e.key))
+            (e.ctrlKey && ['u', 'U', 's', 'S', 'a', 'A', 'c', 'C', 'p', 'P', 'i', 'I'].includes(e.key)) ||
+            (e.ctrlKey && e.shiftKey && ['i', 'I', 'j', 'J', 'c', 'C', 'k', 'K'].includes(e.key)) ||
+            (e.metaKey && ['u', 'U', 's', 'S', 'a', 'A', 'c', 'C'].includes(e.key))
         ) {
             e.preventDefault();
             e.stopPropagation();
@@ -31,7 +31,7 @@
 
     // 3. Disable drag & text selection
     document.addEventListener('selectstart', function (e) { e.preventDefault(); });
-    document.addEventListener('dragstart',   function (e) { e.preventDefault(); });
+    document.addEventListener('dragstart', function (e) { e.preventDefault(); });
 
     // 4. Disable print (Ctrl+P handled above, also via media)
     window.addEventListener('beforeprint', function (e) { e.preventDefault(); window.stop(); });
@@ -73,10 +73,10 @@
 
         setInterval(function () {
             var threshold = 160;
-            var w = window.outerWidth  - window.innerWidth  > threshold;
+            var w = window.outerWidth - window.innerWidth > threshold;
             var h = window.outerHeight - window.innerHeight > threshold;
             if (w || h) { warned = true; showOverlay(); }
-            else         { warned = false; hideOverlay(); }
+            else { warned = false; hideOverlay(); }
         }, 1000);
     })();
 
@@ -85,12 +85,12 @@
        SECTION 2 — CONFIGURATION (edit here to customise)
     ============================================================ */
     var CONFIG = {
-        matrixText:    'HAPPYBIRTHDAYKHUSHI',
-        matrixColor1:  '#87ceeb',   // cool blue light
-        matrixColor2:  '#4169e1',   // royal blue dark
+        matrixText: 'HAPPYBIRTHDAYKHUSHI',
+        matrixColor1: '#87ceeb',   // cool blue light
+        matrixColor2: '#4169e1',   // royal blue dark
         countdownFrom: 3,
-        words:         ['HAPPY', 'BIRTHDAY', 'TO', 'YOU', 'KHUSHI ❤'],
-        wordDelay:     1400         // ms between each word
+        words: ['HAPPYY', 'BIRTHDAYY', 'TO', 'MY BESTFRIEND 💙', 'KHUSHI 🌷'],
+        wordDelay: 1400         // ms between each word
     };
 
 
@@ -99,15 +99,15 @@
     ============================================================ */
     (function initMatrix() {
         var canvas = document.getElementById('matrix-rain');
-        var ctx    = canvas.getContext('2d');
-        var chars  = CONFIG.matrixText.split('');
+        var ctx = canvas.getContext('2d');
+        var chars = CONFIG.matrixText.split('');
         var cols, drops, fontSize;
 
         function resize() {
-            canvas.width  = window.innerWidth;
+            canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
             fontSize = Math.max(12, Math.floor(Math.min(window.innerWidth, window.innerHeight) / 40));
-            cols  = Math.floor(canvas.width / fontSize);
+            cols = Math.floor(canvas.width / fontSize);
             drops = [];
             for (var i = 0; i < cols; i++) drops[i] = 1;
         }
@@ -139,27 +139,27 @@
         var el = document.createElement('span');
         el.className = 'floatheart';
         el.textContent = '❤';
-        el.style.left     = (Math.random() * 95) + 'vw';
-        el.style.bottom   = '-30px';
-        el.style.color    = 'hsl(' + (200 + Math.random() * 30) + ',80%,' + (55 + Math.random() * 25) + '%)';
+        el.style.left = (Math.random() * 95) + 'vw';
+        el.style.bottom = '-30px';
+        el.style.color = 'hsl(' + (200 + Math.random() * 30) + ',80%,' + (55 + Math.random() * 25) + '%)';
         el.style.fontSize = (16 + Math.random() * 18) + 'px';
         document.body.appendChild(el);
         setTimeout(function () { el.parentNode && el.parentNode.removeChild(el); }, 4200);
     }
 
     function launchFirework(x, y) {
-        var fw     = document.getElementById('fireworks');
-        var colors = ['#87ceeb','#4169e1','#1e90ff','#b0d4ff','#fff','#63a9e8'];
+        var fw = document.getElementById('fireworks');
+        var colors = ['#87ceeb', '#4169e1', '#1e90ff', '#b0d4ff', '#fff', '#63a9e8'];
         for (var i = 0; i < 28; i++) {
-            var s     = document.createElement('div');
+            var s = document.createElement('div');
             s.className = 'spark';
             var angle = (i / 28) * Math.PI * 2;
-            var dist  = 60 + Math.random() * 80;
-            s.style.setProperty('--dx',  (Math.cos(angle) * dist) + 'px');
-            s.style.setProperty('--dy',  (Math.sin(angle) * dist) + 'px');
+            var dist = 60 + Math.random() * 80;
+            s.style.setProperty('--dx', (Math.cos(angle) * dist) + 'px');
+            s.style.setProperty('--dy', (Math.sin(angle) * dist) + 'px');
             s.style.setProperty('--dur', (0.8 + Math.random() * 0.7) + 's');
-            s.style.left       = x + 'px';
-            s.style.top        = y + 'px';
+            s.style.left = x + 'px';
+            s.style.top = y + 'px';
             s.style.background = colors[Math.floor(Math.random() * colors.length)];
             fw.appendChild(s);
             (function (el) { setTimeout(function () { el.parentNode && el.parentNode.removeChild(el); }, 1600); })(s);
@@ -171,8 +171,8 @@
             (function (idx) {
                 setTimeout(function () {
                     launchFirework(
-                        100 + Math.random() * (window.innerWidth  - 200),
-                        80  + Math.random() * (window.innerHeight - 160)
+                        100 + Math.random() * (window.innerWidth - 200),
+                        80 + Math.random() * (window.innerHeight - 160)
                     );
                 }, idx * 300);
             })(i);
@@ -184,11 +184,11 @@
        SECTION 5 — MAIN BIRTHDAY SEQUENCE
     ============================================================ */
     function runSequence() {
-        var cdEl    = document.getElementById('countdown');
+        var cdEl = document.getElementById('countdown');
         var textBox = document.getElementById('textDisplay');
-        var textEl  = document.getElementById('textContent');
-        var gifEl   = document.getElementById('giftGif');
-        var t       = 0;
+        var textEl = document.getElementById('textContent');
+        var gifEl = document.getElementById('giftGif');
+        var t = 0;
 
         /* Phase 1 — Countdown 3 → 2 → 1 */
         for (var n = CONFIG.countdownFrom; n >= 1; n--) {
@@ -238,7 +238,14 @@
             gifEl.classList.add('show');
 
             setInterval(burstFireworks, 1800);
-            setInterval(spawnHeart,    400);
+            setInterval(spawnHeart, 400);
+
+            // Show "Next" button after GIF settles
+            setTimeout(function () {
+                var nb = document.getElementById('nextBtn');
+                if (nb) nb.classList.add('show');
+            }, 2500);
+
         }, t);
     }
 

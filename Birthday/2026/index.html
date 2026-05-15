@@ -1,83 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>Happy Birthday Khushi 🎂</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#ff6b9d">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;user-select:none;-webkit-user-select:none}
+html,body{min-height:100vh;background:linear-gradient(160deg,#ffe4f0,#ffd6e7,#ffecf5);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Segoe UI',Arial,sans-serif;overflow:hidden;position:relative}
 
-    <!-- ── Primary SEO ─────────────────────────────────────────── -->
-    <title>Happy Birthday Khushi 🎁 | A Magical Surprise 2026</title>
-    <meta name="description"    content="A magical birthday surprise crafted with love for Khushi. Blue matrix rain, fireworks, and a heartfelt birthday wish!">
-    <meta name="keywords"       content="Happy Birthday Khushi, Birthday Surprise 2026, Birthday Wish, Special Birthday">
-    <meta name="author"         content="Lucky — luckyverse.tech">
-    <meta name="robots"         content="noindex, nofollow, noarchive, nosnippet">
-    <meta name="theme-color"    content="#1e90ff">
+/* Floating bg emojis */
+.bgh{position:fixed;opacity:.15;pointer-events:none;animation:bgFloat var(--d,8s) ease-in-out infinite;animation-delay:var(--dl,0s)}
+@keyframes bgFloat{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-25px) rotate(10deg)}}
 
-    <!-- ── Open Graph (WhatsApp / Facebook preview) ────────────── -->
-    <meta property="og:type"        content="website">
-    <meta property="og:site_name"   content="LuckyVerse">
-    <meta property="og:title"       content="Happy Birthday Khushi 🎁">
-    <meta property="og:description" content="A magical birthday surprise crafted with love just for you!">
-    <meta property="og:image"       content="https://khushi.luckyverse.tech/Birthday/2026/1.gif">
-    <meta property="og:url"         content="https://khushi.luckyverse.tech/Birthday/2026/">
-    <meta property="og:locale"      content="en_IN">
+/* Card */
+.card{background:rgba(255,255,255,.95);backdrop-filter:blur(20px);border-radius:28px;padding:clamp(28px,6vw,56px) clamp(22px,5vw,48px);max-width:480px;width:88vw;text-align:center;box-shadow:0 20px 80px rgba(255,107,157,.2),0 8px 32px rgba(0,0,0,.06);position:relative;z-index:10;animation:cardIn .8s cubic-bezier(.34,1.56,.64,1) forwards}
+@keyframes cardIn{from{transform:scale(.7) translateY(30px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
 
-    <!-- ── Twitter Card ─────────────────────────────────────────── -->
-    <meta name="twitter:card"        content="summary_large_image">
-    <meta name="twitter:title"       content="Happy Birthday Khushi 🎁">
-    <meta name="twitter:description" content="A magical birthday surprise crafted with love!">
-    <meta name="twitter:image"       content="https://khushi.luckyverse.tech/Birthday/2026/1.gif">
+/* HBD image */
+.hbd-img{font-size:clamp(64px,16vw,96px);display:block;line-height:1;margin-bottom:18px;animation:bounce 2s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-12px) scale(1.07)}}
 
-    <!-- ── Security Headers (meta fallback for static hosting) ─── -->
-    <meta http-equiv="X-Content-Type-Options"  content="nosniff">
-    <meta http-equiv="X-Frame-Options"         content="DENY">
-    <meta http-equiv="Referrer-Policy"         content="strict-origin-when-cross-origin">
-    <meta http-equiv="Permissions-Policy"      content="camera=(), microphone=(), geolocation=()">
-    <!-- Content-Security-Policy: only load from same origin -->
-    <meta http-equiv="Content-Security-Policy"
-          content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; frame-ancestors 'none'; base-uri 'self';">
+/* Text */
+h1{font-size:clamp(19px,4.5vw,26px);font-weight:800;color:#ff3d7f;line-height:1.3;margin-bottom:10px}
+.sub{font-size:clamp(13px,3vw,15px);color:#aaa;margin-bottom:28px}
 
-    <!-- ── Favicon (emoji — no image file needed) ───────────────── -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>">
+/* Button */
+.btn{display:inline-block;background:linear-gradient(135deg,#ff6b9d,#ff3d7f);color:#fff;border:none;border-radius:50px;padding:clamp(14px,3.5vw,18px) clamp(32px,7vw,54px);font-size:clamp(15px,3.5vw,18px);font-weight:700;cursor:pointer;letter-spacing:.5px;box-shadow:0 8px 30px rgba(255,61,127,.4);transition:all .3s;animation:pulse 2.5s ease-in-out infinite}
+.btn:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 14px 40px rgba(255,61,127,.55)}
+.btn:active{transform:scale(.97)}
+@keyframes pulse{0%,100%{box-shadow:0 8px 30px rgba(255,61,127,.4)}50%{box-shadow:0 8px 40px rgba(255,61,127,.75)}}
 
-    <!-- ── Fonts (local offline cache) ──────────────────────────── -->
-    <link rel="preload" href="fonts/googleapis/css/family=Pacifico&display=swap.css"                              as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="fonts/googleapis/css2/family=Dancing+Script_wght@400;500;600;700&display=swap.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link href="fonts/googleapis/css/family=Pacifico&display=swap.css" rel="stylesheet">
-        <link href="fonts/googleapis/css2/family=Dancing+Script_wght@400;500;600;700&display=swap.css" rel="stylesheet">
-    </noscript>
-
-    <!-- ── Stylesheet ───────────────────────────────────────────── -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <!-- ── Canonical ────────────────────────────────────────────── -->
-    <link rel="canonical" href="https://khushi.luckyverse.tech/Birthday/2026/">
+/* Overlay for page transition */
+#ov{position:fixed;inset:0;background:#000;opacity:0;z-index:999;pointer-events:none;transition:opacity .5s ease}
+</style>
 </head>
 <body>
 
-    <!-- Matrix rain canvas -->
-    <canvas id="matrix-rain" aria-hidden="true"></canvas>
+<!-- Background floating emojis -->
+<span class="bgh" style="font-size:28px;left:6%;top:12%;--d:7s;--dl:-2s">💕</span>
+<span class="bgh" style="font-size:22px;left:84%;top:18%;--d:9s;--dl:-4s">🌸</span>
+<span class="bgh" style="font-size:26px;left:12%;top:72%;--d:8s;--dl:-1s">💗</span>
+<span class="bgh" style="font-size:20px;left:82%;top:68%;--d:6s;--dl:-3s">🌷</span>
+<span class="bgh" style="font-size:18px;left:48%;top:6%;--d:10s;--dl:-5s">✨</span>
+<span class="bgh" style="font-size:24px;left:3%;top:48%;--d:8s;--dl:-6s">💝</span>
+<span class="bgh" style="font-size:20px;left:90%;top:46%;--d:7s;--dl:-2.5s">🌸</span>
+<span class="bgh" style="font-size:22px;left:40%;top:88%;--d:9s;--dl:-3.5s">💫</span>
 
-    <!-- Countdown number -->
-    <div id="countdown" aria-live="polite" aria-atomic="true"></div>
+<!-- Transition overlay -->
+<div id="ov"></div>
 
-    <!-- Birthday message card -->
-    <div id="textDisplay" role="main">
-        <div id="textContent"></div>
-    </div>
+<!-- Main card -->
+<div class="card">
+    <span class="hbd-img">🎁</span>
+    <h1 id="heading">A Cutiepie was born today,<br><span id="ageText"></span> years ago!</h1>
+    <p class="sub">Yes, it's YOU! A little surprise awaits… 🌟</p>
+    <button class="btn" id="startBtn">🎊 Start the Surprise</button>
+</div>
 
-    <!-- Animated birthday GIF -->
-    <img id="giftGif"
-         src="1.gif"
-         alt="Happy Birthday Khushi! 🎁"
-         draggable="false"
-         aria-hidden="true">
+<script>
+(function(){
+    'use strict';
+    // ── Config: set Khushi's birth year ──
+    var BIRTH_YEAR = 2003;
+    var age = new Date().getFullYear() - BIRTH_YEAR;
+    document.getElementById('ageText').textContent = age;
 
-    <!-- Fireworks layer -->
-    <div id="fireworks" aria-hidden="true"></div>
+    // Disable right-click & shortcuts
+    document.addEventListener('contextmenu',function(e){e.preventDefault();});
+    document.addEventListener('keydown',function(e){
+        if(e.key==='F12'||(e.ctrlKey&&'uUsSaAcCpPiI'.includes(e.key))){e.preventDefault();}
+    });
 
-    <!-- App logic (security + animation) -->
-    <script src="js/app.js"></script>
-
+    // Button click — fade to black, then navigate
+    document.getElementById('startBtn').addEventListener('click',function(){
+        var ov = document.getElementById('ov');
+        ov.style.opacity = '1';
+        ov.style.pointerEvents = 'all';
+        setTimeout(function(){ window.location.href = 'surprise.html'; }, 520);
+    });
+})();
+</script>
 </body>
 </html>
