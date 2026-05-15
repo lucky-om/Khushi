@@ -1,7 +1,7 @@
 /* Happy Birthday Khushi 2026 */
 /* Coded by Lucky */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html,body{width:100%;height:100%;overflow:hidden;font-family:'Segoe UI',Arial,sans-serif}
+html,body{width:100%;height:100%;overflow:hidden;font-family:'Segoe UI',Arial,sans-serif;user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none}
 img{user-select:none;-webkit-user-select:none;max-width:100%;display:block}
 
 /* ── SECTIONS ── */
