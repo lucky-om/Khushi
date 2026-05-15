@@ -14,7 +14,7 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -978,134 +978,50 @@ img {
 
 /* Laptop & Desktop Enhancements */
 @media(min-width: 768px) {
-
   /* General */
-  .btn {
-    font-size: 18px;
-    padding: 16px 40px;
-  }
-
-  .section-title {
-    font-size: 36px;
-    margin-bottom: 30px;
-  }
+  .btn { font-size: 18px; padding: 16px 40px; }
+  .section-title { font-size: 32px; margin-bottom: 30px; }
 
   /* Landing */
-  .card1 {
-    max-width: 650px;
-    padding: 60px 50px;
-  }
-
-  .hbd-icon {
-    font-size: 120px;
-  }
-
-  .card1 h1 {
-    font-size: 38px;
-  }
-
-  .card1 p {
-    font-size: 18px;
-  }
-
+  .card1 { max-width: 600px; padding: 50px 40px; }
+  .hbd-icon { font-size: 100px; }
+  .card1 h1 { font-size: 34px; }
+  .card1 p { font-size: 18px; }
+  
   /* Surprise Text */
-  #textDisplay {
-    max-width: 800px;
-    padding: 40px 50px;
-  }
-
-  #textContent {
-    font-size: 46px;
-  }
+  #textDisplay { max-width: 700px; padding: 40px 50px; }
+  #textContent { font-size: 40px; }
 
   /* Gallery */
-  .stack-gallery {
-    max-width: 520px;
-  }
-
-  .stack-card {
-    padding: 18px 18px 60px;
-    border-radius: 12px;
-  }
-
-  .pcap {
-    font-size: 26px;
-  }
+  .stack-gallery { max-width: min(420px, 60vh); }
+  .stack-card { padding: 14px 14px 44px; border-radius: 12px; }
+  .pcap { font-size: 24px; }
 
   /* Cake */
-  .cake-wrap {
-    transform: scale(1.2);
-  }
-
+  .cake-wrap { transform: scale(1.1); }
+  
   /* Letter */
-  .letter {
-    max-width: 800px;
-    padding: 60px 80px;
-  }
-
-  .letter h1 {
-    font-size: 48px;
-  }
-
-  .lbody {
-    font-size: 28px;
-    line-height: 1.8;
-  }
-
-  .hi {
-    font-size: 34px;
-  }
-
-  .emojis {
-    font-size: 40px;
-  }
-
-  .signoff strong {
-    font-size: 22px;
-  }
+  .letter { max-width: 720px; padding: 50px 60px; }
+  .letter h1 { font-size: 44px; }
+  .lbody { font-size: 24px; line-height: 1.7; }
+  .hi { font-size: 30px; }
+  .emojis { font-size: 36px; }
+  .signoff strong { font-size: 20px; }
 }
 
 @media(min-width: 1024px) {
-  .section-title {
-    font-size: 44px;
-    margin-bottom: 40px;
-  }
-
-  .card1 {
-    max-width: 760px;
-    padding: 80px 70px;
-  }
-
-  .card1 h1 {
-    font-size: 46px;
-  }
-
-  #textContent {
-    font-size: 60px;
-  }
-
-  .stack-gallery {
-    max-width: 620px;
-  }
-
-  .cake-wrap {
-    transform: scale(1.45);
-  }
-
-  .letter {
-    max-width: 950px;
-    padding: 70px 100px;
-  }
-
-  .letter h1 {
-    font-size: 56px;
-  }
-
-  .lbody {
-    font-size: 32px;
-  }
-
-  .hi {
-    font-size: 40px;
-  }
+  .section-title { font-size: 40px; margin-bottom: 40px; }
+  .card1 { max-width: 680px; padding: 70px 60px; }
+  .card1 h1 { font-size: 42px; }
+  
+  #textContent { font-size: 50px; }
+  
+  .stack-gallery { max-width: min(500px, 68vh); }
+  
+  .cake-wrap { transform: scale(1.25); }
+  
+  .letter { max-width: 850px; padding: 60px 80px; }
+  .letter h1 { font-size: 52px; }
+  .lbody { font-size: 28px; }
+  .hi { font-size: 36px; }
 }
