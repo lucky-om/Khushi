@@ -86,8 +86,8 @@
     ============================================================ */
     var CONFIG = {
         matrixText:    'HAPPYBIRTHDAYKHUSHI',
-        matrixColor1:  '#dda0dd',   // dreamy purple light
-        matrixColor2:  '#9370db',   // dreamy purple dark
+        matrixColor1:  '#87ceeb',   // cool blue light
+        matrixColor2:  '#4169e1',   // royal blue dark
         countdownFrom: 3,
         words:         ['HAPPY', 'BIRTHDAY', 'TO', 'YOU', 'KHUSHI ❤'],
         wordDelay:     1400         // ms between each word
@@ -141,7 +141,7 @@
         el.textContent = '❤';
         el.style.left     = (Math.random() * 95) + 'vw';
         el.style.bottom   = '-30px';
-        el.style.color    = 'hsl(' + (260 + Math.random() * 40) + ',80%,' + (60 + Math.random() * 20) + '%)';
+        el.style.color    = 'hsl(' + (200 + Math.random() * 30) + ',80%,' + (55 + Math.random() * 25) + '%)';
         el.style.fontSize = (16 + Math.random() * 18) + 'px';
         document.body.appendChild(el);
         setTimeout(function () { el.parentNode && el.parentNode.removeChild(el); }, 4200);
@@ -149,7 +149,7 @@
 
     function launchFirework(x, y) {
         var fw     = document.getElementById('fireworks');
-        var colors = ['#dda0dd','#9370db','#8a2be2','#e6b3ff','#fff','#c8a0ea'];
+        var colors = ['#87ceeb','#4169e1','#1e90ff','#b0d4ff','#fff','#63a9e8'];
         for (var i = 0; i < 28; i++) {
             var s     = document.createElement('div');
             s.className = 'spark';
