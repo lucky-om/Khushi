@@ -163,43 +163,59 @@ function spawnGallerySparkles(cx, cy) {
 
 function buildGallery() {
   var container = document.getElementById('stackGallery');
-  var nextBtn = document.getElementById('galleryNext');
+  var nextBtn   = document.getElementById('galleryNext');
+  var wrap      = container.parentElement; /* .gallery-wrap */
   container.innerHTML = '';
+
+  /* Remove old caption if any */
+  var oldCap = wrap.querySelector('.gallery-cap');
+  if (oldCap) oldCap.parentNode.removeChild(oldCap);
+
+  /* Shared caption element — lives BELOW the stack, updates on each swipe */
+  var captionEl = document.createElement('p');
+  captionEl.className = 'pcap gallery-cap';
+  wrap.insertBefore(captionEl, container.nextSibling);
 
   var cards = [];
   var total = PHOTOS.length;
   var clicks = 0;
+  var currentIdx = 0; /* track which photo is on top */
+
+  function updateCaption(idx) {
+    captionEl.textContent = PHOTOS[idx % total].cap;
+  }
 
   PHOTOS.forEach(function(p, i) {
     var card = document.createElement('div');
-    card.className = 'polaroid photo-glow stack-card';
+    /* only top card gets the glow; others are plain */
+    card.className = 'stack-card entering' + (i === 0 ? ' photo-glow' : '');
     card.style.zIndex = total - i;
 
-    var rot = (Math.random() * 12) - 6;
-    var dx  = (Math.random() * 20) - 10;
-    var dy  = (Math.random() * 20) - 10;
+    /* small random tilt for the stack effect */
+    var rot = (Math.random() * 10) - 5;
+    var dx  = (Math.random() * 14) - 7;
+    /* dy: back cards slightly lower so stack is visible */
+    var dy  = i * 3;
     card.style.setProperty('--rot', rot + 'deg');
     card.style.setProperty('--dx',  dx  + 'px');
     card.style.setProperty('--dy',  dy  + 'px');
     card.style.transform = 'translate(' + dx + 'px, ' + dy + 'px) rotate(' + rot + 'deg)';
-
-    /* Staggered entrance */
-    card.classList.add('entering');
-    card.style.animationDelay = (i * 0.08) + 's';
+    card.style.animationDelay = (i * 0.07) + 's';
 
     var img = document.createElement('img');
-    img.src = p.src;
-    img.alt = p.cap;
+    img.src       = p.src;
+    img.alt       = p.cap;
     img.draggable = false;
     img.className = 'card-img';
-    img.style.objectPosition = PHOTO_FOCUS[i] || 'center center';
 
-    var cap = document.createElement('p');
-    cap.className = 'pcap';
-    cap.textContent = p.cap;
+    /* Once top image loads, size the container to match its rendered height */
+    if (i === 0) {
+      img.addEventListener('load', function() {
+        container.style.height = img.offsetHeight + 'px';
+      });
+    }
 
     card.appendChild(img);
-    card.appendChild(cap);
     container.appendChild(card);
     cards.push(card);
 
@@ -207,42 +223,59 @@ function buildGallery() {
       clicks++;
       if (clicks >= total - 1) { nextBtn.style.display = 'inline-flex'; }
 
-      /* Ripple at tap point */
+      /* Ripple */
       var rect = card.getBoundingClientRect();
-      var tx = (e.clientX || rect.left + rect.width/2) - rect.left;
-      var ty = (e.clientY || rect.top  + rect.height/2) - rect.top;
+      var tx = (e.clientX || rect.left + rect.width  / 2) - rect.left;
+      var ty = (e.clientY || rect.top  + rect.height / 2) - rect.top;
       spawnRipple(card, tx, ty);
 
-      /* Sparkles above tap */
-      var cx = e.clientX || rect.left + rect.width/2;
-      var cy = e.clientY || rect.top  + rect.height/2;
-      spawnGallerySparkles(cx, cy - 10);
+      /* Sparkles */
+      spawnGallerySparkles(
+        e.clientX || rect.left + rect.width  / 2,
+        e.clientY || rect.top  + rect.height / 2
+      );
 
-      /* Swipe card out to the right */
-      card.style.transition = 'transform 0.42s cubic-bezier(.55,.06,.68,.19), opacity 0.35s ease';
-      card.style.transform  = 'translate(' + (dx + 220) + 'px, ' + (dy - 40) + 'px) rotate(' + (rot + 28) + 'deg)';
+      /* Swipe out right */
+      card.style.transition = 'transform 0.40s cubic-bezier(.55,.06,.68,.19), opacity 0.32s ease';
+      card.style.transform  = 'translate(' + (dx + 230) + 'px, ' + (dy - 35) + 'px) rotate(' + (rot + 25) + 'deg)';
       card.style.opacity    = '0';
+      card.classList.remove('photo-glow');
+
+      /* Advance caption immediately */
+      currentIdx = (currentIdx + 1) % total;
+      updateCaption(currentIdx);
+
+      /* Highlight new top card */
+      var children = Array.from(container.children);
+      if (children.length > 1) {
+        children[children.length - 1].classList.add('photo-glow');
+      }
 
       setTimeout(function() {
         container.prepend(card);
-        /* Update z-indexes */
+        /* re-calculate z-indexes so first child = lowest */
         Array.from(container.children).forEach(function(c, idx) {
           c.style.zIndex = idx;
         });
 
-        /* Instant reset hidden behind stack */
-        card.style.transition = 'none';
-        card.style.transform  = 'translate(' + (dx - 40) + 'px, ' + (dy + 15) + 'px) rotate(' + (rot - 8) + 'deg) scale(0.92)';
-        card.style.opacity    = '0';
-        void card.offsetWidth; /* force reflow */
+        /* reset glow — it goes to back */
+        card.classList.remove('photo-glow');
 
-        /* Snap back into place */
-        card.style.transition = 'transform 0.5s cubic-bezier(.34,1.56,.64,1), opacity 0.4s ease';
+        /* Instant snap behind stack */
+        card.style.transition = 'none';
+        card.style.transform  = 'translate(' + (dx - 35) + 'px, ' + (dy + 12) + 'px) rotate(' + (rot - 7) + 'deg) scale(0.93)';
+        card.style.opacity    = '0';
+        void card.offsetWidth;
+
+        /* Spring back */
+        card.style.transition = 'transform 0.48s cubic-bezier(.34,1.56,.64,1), opacity 0.38s ease';
         card.style.transform  = 'translate(' + dx + 'px, ' + dy + 'px) rotate(' + rot + 'deg) scale(1)';
         card.style.opacity    = '1';
       }, 420);
     });
   });
+
+  updateCaption(0);
 }
 var galleryBuilt = false;
 

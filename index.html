@@ -1,245 +1,251 @@
+<!DOCTYPE html>
+<!-- Coded by Lucky -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <title>Happy Birthday Khushi 🎁</title>
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#1a0533">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
-<style>
-  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
-  @keyframes sparkle { 0%,100%{opacity:0;transform:scale(0)} 50%{opacity:1;transform:scale(1)} }
-  @keyframes pop { 0%{transform:scale(1)} 50%{transform:scale(1.15)} 100%{transform:scale(1)} }
-  @keyframes shimmer { 0%{background-position:0% 50%} 100%{background-position:200% 50%} }
-  @keyframes rise { 0%{transform:translateY(100px);opacity:0} 100%{transform:translateY(0);opacity:1} }
-  @keyframes twinkle { 0%,100%{opacity:.3;transform:scale(.8)} 50%{opacity:1;transform:scale(1.2)} }
-  @keyframes confettiFall { 0%{transform:translateY(-20px) rotate(0deg);opacity:1} 100%{transform:translateY(400px) rotate(720deg);opacity:0} }
-  @keyframes heartbeat { 0%,100%{transform:scale(1)} 30%{transform:scale(1.3)} 60%{transform:scale(1.1)} }
-  @keyframes gradientShift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  
-/* CODED BY LUCKY*/
-  
-  .birthday-wrap {
-    min-height: 520px;
-    padding: 2rem 1rem 2.5rem;
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(135deg, #1a0533 0%, #2d0a4e 30%, #1a1a4e 60%, #0d2b4e 100%);
-    background-size: 300% 300%;
-    animation: gradientShift 8s ease infinite;
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: var(--font-sans);
-  }
-
-  .stars-bg { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
-  .star {
-    position:absolute; border-radius:50%;
-    background:#fff;
-    animation: twinkle var(--d,2s) ease-in-out infinite;
-    animation-delay: var(--dl,0s);
-  }
-
-  .confetti-piece {
-    position:absolute; width:8px; height:8px; border-radius:2px;
-    animation: confettiFall var(--d,3s) ease-in var(--dl,0s) infinite;
-    opacity:0;
-  }
-
-  .title-area {
-    position:relative; z-index:2; text-align:center; margin-bottom:1.5rem;
-    animation: rise .8s ease both;
-  }
-
-  .for-label {
-    font-size:13px; color:rgba(255,255,255,.6); letter-spacing:3px; text-transform:uppercase; margin-bottom:.4rem;
-  }
-
-  .name-text {
-    font-size:clamp(2rem,8vw,3.2rem); font-weight:500; letter-spacing:1px;
-    background: linear-gradient(90deg, #ff9de2, #ffd6a5, #fdffb6, #caffbf, #9bf6ff, #c0b3f8, #ff9de2);
-    background-size: 300% auto;
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: shimmer 4s linear infinite;
-  }
-
-  .balloon-row {
-    display:flex; gap:1.2rem; margin-bottom:1.2rem; position:relative; z-index:2;
-  }
-
-  .balloon {
-    display:flex; flex-direction:column; align-items:center;
-    animation: float var(--d,3s) ease-in-out infinite;
-    animation-delay: var(--dl,0s);
-  }
-
-  .balloon-body {
-    width:38px; height:48px; border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
-    position:relative;
-  }
-  .balloon-body::after {
-    content:''; position:absolute; bottom:-6px; left:50%; transform:translateX(-50%);
-    width:0; height:0;
-    border-left:4px solid transparent; border-right:4px solid transparent;
-    border-top:7px solid var(--bc, #ff9de2);
-  }
-  .balloon-string { width:1px; height:28px; background:rgba(255,255,255,.4); margin-top:1px; }
-
-  .countdown-grid {
-    display:grid; grid-template-columns:repeat(4,1fr); gap:12px;
-    width:100%; max-width:440px; margin-bottom:1.5rem; position:relative; z-index:2;
-    animation: rise .8s ease .3s both;
-  }
-
-  .time-box {
-    background:rgba(255,255,255,.08); backdrop-filter:blur(4px);
-    border:1px solid rgba(255,255,255,.15); border-radius:14px;
-    padding:.9rem .5rem; text-align:center;
-    transition:transform .2s;
-  }
-  .time-box:hover { transform:scale(1.05); background:rgba(255,255,255,.13); }
-
-  .time-box.pulse { animation: pop .4s ease; }
-
-  .time-num {
-    font-size:clamp(1.6rem,5vw,2.5rem); font-weight:500; line-height:1;
-    background: linear-gradient(180deg, #ffffff 0%, #d4aaff 100%);
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
-    display:block; margin-bottom:.3rem;
-  }
-
-  .time-label {
-    font-size:10px; color:rgba(255,255,255,.5); letter-spacing:2px; text-transform:uppercase;
-  }
-
-  .tagline {
-    font-size:14px; color:rgba(255,255,255,.65); text-align:center;
-    position:relative; z-index:2; animation: rise .8s ease .5s both;
-    line-height:1.6; max-width:340px;
-  }
-
-  .heart-icon {
-    font-size:18px; display:inline-block;
-    animation: heartbeat 1.2s ease infinite;
-  }
-
-  .spark {
-    position:absolute; width:6px; height:6px; border-radius:50%;
-    animation: sparkle var(--d,2s) ease-in-out infinite;
-    animation-delay: var(--dl,0s);
-    pointer-events:none;
-  }
-
-  .birthday-badge {
-    background:linear-gradient(135deg,#ff9de2,#c0b3f8);
-    color:#2d0a4e; font-size:11px; font-weight:500; letter-spacing:1px;
-    text-transform:uppercase; padding:4px 14px; border-radius:20px;
-    margin-bottom:.5rem; display:inline-block;
-  }
-</style>
-
-<div class="birthday-wrap" id="bwrap">
-  <div class="stars-bg" id="starsContainer"></div>
-
-  <div class="title-area">
-    <div class="birthday-badge">Birthday countdown</div>
-    <div class="for-label">For my best friend</div>
-    <div class="name-text">Khushi ✦</div>
-  </div>
-
-  <div class="balloon-row" id="balloonRow"></div>
-
-  <div class="countdown-grid">
-    <div class="time-box" id="box-d"><span class="time-num" id="days">00</span><span class="time-label">Days</span></div>
-    <div class="time-box" id="box-h"><span class="time-num" id="hours">00</span><span class="time-label">Hours</span></div>
-    <div class="time-box" id="box-m"><span class="time-num" id="minutes">00</span><span class="time-label">Minutes</span></div>
-    <div class="time-box" id="box-s"><span class="time-num" id="seconds">00</span><span class="time-label">Seconds</span></div>
-  </div>
-
-  <div class="tagline" id="taglineEl">
-    <span class="heart-icon">♡</span> Counting every moment until we celebrate you, Khushi! <span class="heart-icon">♡</span>
-  </div>
-</div>
-
-<script>
-(function(){
-  const starsC = document.getElementById('starsContainer');
-  const bwrap = document.getElementById('bwrap');
-  
-  for(let i=0;i<60;i++){
-    const s=document.createElement('div');
-    s.className='star';
-    const sz=Math.random()*3+1;
-    s.style.cssText=`width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--d:${2+Math.random()*3}s;--dl:${Math.random()*3}s`;
-    starsC.appendChild(s);
-  }
-
-  const confColors=['#ff9de2','#ffd6a5','#fdffb6','#caffbf','#9bf6ff','#c0b3f8','#ffadad'];
-  for(let i=0;i<18;i++){
-    const c=document.createElement('div');
-    c.className='confetti-piece';
-    c.style.cssText=`left:${Math.random()*100}%;top:-10px;background:${confColors[i%confColors.length]};--d:${3+Math.random()*4}s;--dl:${Math.random()*5}s;border-radius:${Math.random()>0.5?'50%':'3px'}`;
-    bwrap.appendChild(c);
-  }
-
-  const balloons=[
-    {color:'#ff9de2',bc:'#ff9de2',d:'3.2s',dl:'0s'},
-    {color:'#c0b3f8',bc:'#c0b3f8',d:'2.8s',dl:'.4s'},
-    {color:'#ffd6a5',bc:'#ffd6a5',d:'3.5s',dl:'.2s'},
-    {color:'#9bf6ff',bc:'#9bf6ff',d:'3s',dl:'.6s'},
-    {color:'#caffbf',bc:'#caffbf',d:'2.6s',dl:'.3s'}
-  ];
-  const row=document.getElementById('balloonRow');
-  balloons.forEach(b=>{
-    const wrap=document.createElement('div');
-    wrap.className='balloon';
-    wrap.style.cssText=`--d:${b.d};--dl:${b.dl}`;
-    wrap.innerHTML=`<div class="balloon-body" style="background:${b.color};--bc:${b.bc}"></div><div class="balloon-string"></div>`;
-    row.appendChild(wrap);
-  });
-
-  for(let i=0;i<12;i++){
-    const sp=document.createElement('div');
-    sp.className='spark';
-    sp.style.cssText=`top:${10+Math.random()*80}%;left:${5+Math.random()*90}%;background:${confColors[i%confColors.length]};--d:${1.5+Math.random()*2.5}s;--dl:${Math.random()*2}s`;
-    bwrap.appendChild(sp);
-  }
-
-  const birthday=new Date('2026-05-18T00:00:00');
-  const pad=n=>String(n).padStart(2,'0');
-
-  let prevSec=-1, prevMin=-1, prevHour=-1, prevDay=-1;
-
-  function pulse(id){
-    const el=document.getElementById(id);
-    el.classList.remove('pulse');
-    void el.offsetWidth;
-    el.classList.add('pulse');
-  }
-
-  function update(){
-    const now=new Date();
-    const diff=birthday-now;
-
-    if(diff<=0){
-      document.getElementById('days').textContent='00';
-      document.getElementById('hours').textContent='00';
-      document.getElementById('minutes').textContent='00';
-      document.getElementById('seconds').textContent='00';
-      document.getElementById('taglineEl').innerHTML='<span class="heart-icon">♡</span> Happy Birthday Khushi!! Wishing you all the love & joy! <span class="heart-icon">♡</span>';
-      return;
+    html, body {
+      width: 100%; height: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      user-select: none; -webkit-user-select: none;
     }
 
-    const d=Math.floor(diff/86400000);
-    const h=Math.floor((diff%86400000)/3600000);
-    const m=Math.floor((diff%3600000)/60000);
-    const s=Math.floor((diff%60000)/1000);
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1a0533 0%, #2d0a4e 30%, #1a1a4e 60%, #0d2b4e 100%);
+      background-size: 300% 300%;
+      animation: gradientShift 8s ease infinite;
+      overflow: hidden;
+      position: relative;
+      padding: clamp(20px, 5vh, 48px) 16px;
+    }
 
-    if(s!==prevSec){document.getElementById('seconds').textContent=pad(s);pulse('box-s');prevSec=s;}
-    if(m!==prevMin){document.getElementById('minutes').textContent=pad(m);pulse('box-m');prevMin=m;}
-    if(h!==prevHour){document.getElementById('hours').textContent=pad(h);pulse('box-h');prevHour=h;}
-    if(d!==prevDay){document.getElementById('days').textContent=pad(d);pulse('box-d');prevDay=d;}
-  }
+    /* ── Animations ── */
+    @keyframes gradientShift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+    @keyframes float     { 0%,100%{transform:translateY(0)}       50%{transform:translateY(-12px)} }
+    @keyframes sparkle   { 0%,100%{opacity:0;transform:scale(0)}  50%{opacity:1;transform:scale(1)} }
+    @keyframes pop       { 0%{transform:scale(1)} 50%{transform:scale(1.15)} 100%{transform:scale(1)} }
+    @keyframes shimmer   { 0%{background-position:0% 50%} 100%{background-position:200% 50%} }
+    @keyframes rise      { 0%{transform:translateY(30px);opacity:0} 100%{transform:translateY(0);opacity:1} }
+    @keyframes twinkle   { 0%,100%{opacity:.2;transform:scale(.8)} 50%{opacity:.9;transform:scale(1.2)} }
+    @keyframes confettiFall { 0%{transform:translateY(-20px) rotate(0deg);opacity:1} 100%{transform:translateY(110vh) rotate(720deg);opacity:0} }
+    @keyframes heartbeat { 0%,100%{transform:scale(1)} 30%{transform:scale(1.3)} 60%{transform:scale(1.1)} }
 
-  update();
-  setInterval(update,1000);
-})();
-</script>
+    /* ── Stars bg ── */
+    .stars-bg { position:fixed; inset:0; pointer-events:none; overflow:hidden; z-index:0; }
+    .star {
+      position:absolute; border-radius:50%; background:#fff;
+      animation: twinkle var(--d,2s) ease-in-out infinite;
+      animation-delay: var(--dl,0s);
+    }
+
+    /* ── Confetti ── */
+    .confetti-piece {
+      position:fixed; width:8px; height:8px; border-radius:2px;
+      animation: confettiFall var(--d,3s) ease-in var(--dl,0s) infinite;
+      opacity:0; z-index:1; pointer-events:none;
+    }
+
+    /* ── Spark dots ── */
+    .spark {
+      position:fixed; width:6px; height:6px; border-radius:50%;
+      animation: sparkle var(--d,2s) ease-in-out infinite;
+      animation-delay: var(--dl,0s); pointer-events:none; z-index:1;
+    }
+
+    /* ── Main card ── */
+    .main-card {
+      position: relative; z-index: 2;
+      width: 100%; max-width: min(92vw, 480px);
+      display: flex; flex-direction: column; align-items: center;
+      gap: clamp(14px, 3vh, 24px);
+      animation: rise .8s ease both;
+    }
+
+    /* ── Badge ── */
+    .birthday-badge {
+      background: linear-gradient(135deg, #ff9de2, #c0b3f8);
+      color: #2d0a4e; font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; padding: 5px 16px; border-radius: 20px;
+    }
+
+    .for-label {
+      font-size: clamp(11px,3vw,13px); color: rgba(255,255,255,.55);
+      letter-spacing: 3px; text-transform: uppercase; margin-top: -8px;
+    }
+
+    /* ── Name ── */
+    .name-text {
+      font-size: clamp(2rem, 10vw, 3.4rem); font-weight: 500; letter-spacing: 1px;
+      background: linear-gradient(90deg, #ff9de2, #ffd6a5, #fdffb6, #caffbf, #9bf6ff, #c0b3f8, #ff9de2);
+      background-size: 300% auto;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 4s linear infinite;
+      line-height: 1.1;
+    }
+
+    /* ── Balloons ── */
+    .balloon-row { display:flex; gap:clamp(10px,3vw,20px); align-items:flex-end; }
+    .balloon { display:flex; flex-direction:column; align-items:center; animation: float var(--d,3s) ease-in-out infinite; animation-delay:var(--dl,0s); }
+    .balloon-body {
+      width: clamp(28px,7vw,40px); height: clamp(36px,9vw,52px);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; position:relative;
+    }
+    .balloon-body::after {
+      content:''; position:absolute; bottom:-5px; left:50%; transform:translateX(-50%);
+      width:0; height:0;
+      border-left:3px solid transparent; border-right:3px solid transparent;
+      border-top:6px solid var(--bc,#ff9de2);
+    }
+    .balloon-string { width:1px; height:clamp(18px,4vw,28px); background:rgba(255,255,255,.35); margin-top:1px; }
+
+    /* ── Countdown grid ── */
+    .countdown-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: clamp(8px, 2.5vw, 14px); width: 100%;
+    }
+    .time-box {
+      background: rgba(255,255,255,.09); backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.16); border-radius: clamp(10px,3vw,16px);
+      padding: clamp(10px,2.5vh,16px) clamp(6px,2vw,10px);
+      text-align: center; transition: transform .2s, background .2s;
+    }
+    .time-box:hover { transform: scale(1.06); background: rgba(255,255,255,.14); }
+    .time-box.pulse { animation: pop .4s ease; }
+    .time-num {
+      font-size: clamp(1.5rem, 7vw, 2.6rem); font-weight: 600; line-height: 1;
+      background: linear-gradient(180deg, #ffffff 0%, #d4aaff 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      display: block; margin-bottom: 4px;
+    }
+    .time-label { font-size: clamp(9px,2.2vw,11px); color: rgba(255,255,255,.5); letter-spacing: 1.5px; text-transform: uppercase; }
+
+    /* ── Tagline ── */
+    .tagline {
+      font-size: clamp(12px, 3.5vw, 15px); color: rgba(255,255,255,.65);
+      text-align: center; line-height: 1.7; max-width: 340px;
+    }
+    .heart-icon { font-size: clamp(14px,4vw,18px); display:inline-block; animation: heartbeat 1.2s ease infinite; }
+
+    /* ── Responsive: small phones ── */
+    @media (max-height: 580px) {
+      .balloon-row { display: none; }
+      .main-card   { gap: 10px; }
+    }
+
+    @media (min-width: 768px) {
+      .main-card { max-width: 560px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stars-bg" id="starsContainer"></div>
+
+  <div class="main-card">
+    <div class="birthday-badge">Birthday Countdown</div>
+    <div class="for-label">For my best friend</div>
+    <div class="name-text">Khushi ✦</div>
+
+    <div class="balloon-row" id="balloonRow"></div>
+
+    <div class="countdown-grid">
+      <div class="time-box" id="box-d"><span class="time-num" id="days">00</span><span class="time-label">Days</span></div>
+      <div class="time-box" id="box-h"><span class="time-num" id="hours">00</span><span class="time-label">Hours</span></div>
+      <div class="time-box" id="box-m"><span class="time-num" id="minutes">00</span><span class="time-label">Minutes</span></div>
+      <div class="time-box" id="box-s"><span class="time-num" id="seconds">00</span><span class="time-label">Seconds</span></div>
+    </div>
+
+    <div class="tagline" id="taglineEl">
+      <span class="heart-icon">♡</span> Counting every moment until we celebrate you, Khushi! <span class="heart-icon">♡</span>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    var starsC = document.getElementById('starsContainer');
+    var body   = document.body;
+
+    /* Stars */
+    for(var i=0;i<70;i++){
+      var s=document.createElement('div'); s.className='star';
+      var sz=Math.random()*2.5+0.5;
+      s.style.cssText='width:'+sz+'px;height:'+sz+'px;top:'+Math.random()*100+'%;left:'+Math.random()*100+'%;--d:'+(2+Math.random()*3)+'s;--dl:'+(Math.random()*3)+'s';
+      starsC.appendChild(s);
+    }
+
+    /* Confetti */
+    var cols=['#ff9de2','#ffd6a5','#fdffb6','#caffbf','#9bf6ff','#c0b3f8','#ffadad'];
+    for(var i=0;i<18;i++){
+      var c=document.createElement('div'); c.className='confetti-piece';
+      c.style.cssText='left:'+Math.random()*100+'%;top:-10px;background:'+cols[i%cols.length]+';--d:'+(3+Math.random()*4)+'s;--dl:'+(Math.random()*5)+'s;border-radius:'+(Math.random()>.5?'50%':'3px');
+      body.appendChild(c);
+    }
+
+    /* Sparks */
+    for(var i=0;i<12;i++){
+      var sp=document.createElement('div'); sp.className='spark';
+      sp.style.cssText='top:'+(10+Math.random()*80)+'%;left:'+(5+Math.random()*90)+'%;background:'+cols[i%cols.length]+';--d:'+(1.5+Math.random()*2.5)+'s;--dl:'+(Math.random()*2)+'s';
+      body.appendChild(sp);
+    }
+
+    /* Balloons */
+    var balloonDefs=[
+      {c:'#ff9de2',d:'3.2s',dl:'0s'},{c:'#c0b3f8',d:'2.8s',dl:'.4s'},
+      {c:'#ffd6a5',d:'3.5s',dl:'.2s'},{c:'#9bf6ff',d:'3s',dl:'.6s'},
+      {c:'#caffbf',d:'2.6s',dl:'.3s'}
+    ];
+    var row=document.getElementById('balloonRow');
+    balloonDefs.forEach(function(b){
+      var w=document.createElement('div'); w.className='balloon';
+      w.style.cssText='--d:'+b.d+';--dl:'+b.dl;
+      w.innerHTML='<div class="balloon-body" style="background:'+b.c+';--bc:'+b.c+'"></div><div class="balloon-string"></div>';
+      row.appendChild(w);
+    });
+
+    /* Countdown */
+    var birthday=new Date('2026-05-18T00:00:00');
+    var pad=function(n){return String(n).padStart(2,'0');};
+    var prevS=-1,prevM=-1,prevH=-1,prevD=-1;
+
+    function pulse(id){
+      var el=document.getElementById(id);
+      el.classList.remove('pulse'); void el.offsetWidth; el.classList.add('pulse');
+    }
+
+    function update(){
+      var now=new Date(), diff=birthday-now;
+      if(diff<=0){
+        ['days','hours','minutes','seconds'].forEach(function(id){document.getElementById(id).textContent='00';});
+        document.getElementById('taglineEl').innerHTML='<span class="heart-icon">♡</span> Happy Birthday Khushi!! Wishing you all the love & joy! <span class="heart-icon">♡</span>';
+        return;
+      }
+      var d=Math.floor(diff/86400000);
+      var h=Math.floor((diff%86400000)/3600000);
+      var m=Math.floor((diff%3600000)/60000);
+      var s=Math.floor((diff%60000)/1000);
+      if(s!==prevS){document.getElementById('seconds').textContent=pad(s);pulse('box-s');prevS=s;}
+      if(m!==prevM){document.getElementById('minutes').textContent=pad(m);pulse('box-m');prevM=m;}
+      if(h!==prevH){document.getElementById('hours').textContent=pad(h);pulse('box-h');prevH=h;}
+      if(d!==prevD){document.getElementById('days').textContent=pad(d);pulse('box-d');prevD=d;}
+    }
+    update(); setInterval(update,1000);
+  })();
+  </script>
+</body>
+</html>
