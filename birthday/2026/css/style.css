@@ -9,12 +9,13 @@
   -webkit-tap-highlight-color: transparent
 }
 
-html,
 body {
   width: 100%;
   height: 100%;
   overflow: hidden;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -479,7 +480,7 @@ img {
   position: relative;
   width: 100%;
   max-width: min(88vw, 350px);
-  aspect-ratio: 3/4.5;
+  aspect-ratio: 1/1.2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -489,7 +490,7 @@ img {
   position: absolute;
   background: #fff;
   border-radius: 6px;
-  padding: 12px 12px 44px;
+  padding: 12px 12px 64px;
   box-shadow: 0 12px 60px rgba(0, 0, 0, .6), 0 0 40px rgba(65, 105, 225, .15);
   width: 100%;
   cursor: pointer;
@@ -508,8 +509,9 @@ img {
 .stack-card img,
 .stack-card .ph-placeholder {
   width: 100%;
-  aspect-ratio: 4/5;
+  aspect-ratio: 1/1;
   object-fit: cover;
+  object-position: center;
   border-radius: 2px;
   display: block;
 }
@@ -574,8 +576,16 @@ img {
 
 /* Caption INSIDE white polaroid — dark text */
 .pcap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
   text-align: center;
-  margin-top: 8px;
   font-family: 'Dancing Script', cursive;
   font-size: clamp(16px, 4.5vw, 21px);
   color: #1e3a6e;

@@ -178,8 +178,9 @@ function buildGallery() {
       if(clicks >= total - 1) {
         nextBtn.style.display = 'inline-flex';
       }
-      // Animate card going to back
-      card.style.transform = 'translate(' + (dx + 120) + 'px, ' + dy + 'px) rotate(' + (rot + 15) + 'deg)';
+      
+      // Swipe out animation (Tinder style)
+      card.style.transform = 'translate(' + (dx + 200) + 'px, ' + (dy - 50) + 'px) rotate(' + (rot + 30) + 'deg)';
       card.style.opacity = '0';
       
       setTimeout(function() {
@@ -188,9 +189,19 @@ function buildGallery() {
            // Recalculate z-index: first in DOM is lowest z-index
            c.style.zIndex = Array.from(container.children).indexOf(c);
         });
+        
+        // Instant reset behind the stack
+        card.style.transition = 'none';
+        card.style.transform = 'translate(' + (dx - 50) + 'px, ' + (dy + 20) + 'px) rotate(' + (rot - 10) + 'deg) scale(0.95)';
+        
+        // Force reflow
+        void card.offsetWidth;
+        
+        // Smooth return
+        card.style.transition = 'transform 0.5s cubic-bezier(.34, 1.56, .64, 1), opacity 0.4s';
         card.style.transform = 'translate(' + dx + 'px, ' + dy + 'px) rotate(' + rot + 'deg)';
         card.style.opacity = '1';
-      }, 300);
+      }, 400); // Trigger before CSS transition fully finishes for snappiness
     });
   });
 }
