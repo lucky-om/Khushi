@@ -164,37 +164,19 @@ function spawnGallerySparkles(cx, cy) {
 function buildGallery() {
   var container = document.getElementById('stackGallery');
   var nextBtn   = document.getElementById('galleryNext');
-  var wrap      = container.parentElement; /* .gallery-wrap */
   container.innerHTML = '';
-
-  /* Remove old caption if any */
-  var oldCap = wrap.querySelector('.gallery-cap');
-  if (oldCap) oldCap.parentNode.removeChild(oldCap);
-
-  /* Shared caption element — lives BELOW the stack, updates on each swipe */
-  var captionEl = document.createElement('p');
-  captionEl.className = 'pcap gallery-cap';
-  wrap.insertBefore(captionEl, container.nextSibling);
 
   var cards = [];
   var total = PHOTOS.length;
   var clicks = 0;
-  var currentIdx = 0; /* track which photo is on top */
-
-  function updateCaption(idx) {
-    captionEl.textContent = PHOTOS[idx % total].cap;
-  }
 
   PHOTOS.forEach(function(p, i) {
     var card = document.createElement('div');
-    /* only top card gets the glow; others are plain */
-    card.className = 'stack-card entering' + (i === 0 ? ' photo-glow' : '');
+    card.className = 'stack-card polaroid entering' + (i === 0 ? ' photo-glow' : '');
     card.style.zIndex = total - i;
 
-    /* small random tilt for the stack effect */
     var rot = (Math.random() * 10) - 5;
     var dx  = (Math.random() * 14) - 7;
-    /* dy: back cards slightly lower so stack is visible */
     var dy  = i * 3;
     card.style.setProperty('--rot', rot + 'deg');
     card.style.setProperty('--dx',  dx  + 'px');
@@ -207,17 +189,24 @@ function buildGallery() {
     img.alt       = p.cap;
     img.draggable = false;
     img.className = 'card-img';
+    /* Use PHOTO_FOCUS if available */
+    img.style.objectPosition = PHOTO_FOCUS[i] || '50% 30%';
 
-    /* Once top image loads, size the container to match its rendered height */
-    if (i === 0) {
-      img.addEventListener('load', function() {
-        container.style.height = img.offsetHeight + 'px';
-      });
-    }
+    var cap = document.createElement('p');
+    cap.className = 'pcap';
+    cap.textContent = p.cap;
 
     card.appendChild(img);
+    card.appendChild(cap);
     container.appendChild(card);
     cards.push(card);
+
+    /* Set container height to match the first framed card */
+    if (i === 0) {
+      img.addEventListener('load', function() {
+        container.style.height = card.offsetHeight + 'px';
+      });
+    }
 
     card.addEventListener('click', function(e) {
       clicks++;
@@ -240,10 +229,6 @@ function buildGallery() {
       card.style.transform  = 'translate(' + (dx + 230) + 'px, ' + (dy - 35) + 'px) rotate(' + (rot + 25) + 'deg)';
       card.style.opacity    = '0';
       card.classList.remove('photo-glow');
-
-      /* Advance caption immediately */
-      currentIdx = (currentIdx + 1) % total;
-      updateCaption(currentIdx);
 
       /* Highlight new top card */
       var children = Array.from(container.children);
@@ -274,8 +259,6 @@ function buildGallery() {
       }, 420);
     });
   });
-
-  updateCaption(0);
 }
 var galleryBuilt = false;
 

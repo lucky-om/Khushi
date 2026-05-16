@@ -508,45 +508,55 @@ img {
   flex-shrink: 0;
 }
 
-/* The card: NO white background, NO fixed height — wraps the photo naturally */
+/* The white polaroid card */
 .stack-card {
   position: absolute;
-  /* top card sits at 0,0; back cards are offset by random dx/dy */
-  border-radius: 14px;
-  overflow: hidden;
+  background: #fff;
+  border-radius: 4px;
+  padding: 8px 8px 44px; /* Frame padding, bottom gap for caption */
   cursor: pointer;
   will-change: transform;
   transition: transform 0.45s cubic-bezier(.34,1.56,.64,1), opacity 0.35s ease;
-  /* width matches parent */
   width: 100%;
   box-shadow:
-    0 12px 48px rgba(0,0,0,.7),
-    0 3px 12px rgba(0,0,0,.4);
+    0 8px 40px rgba(0,0,0,.55),
+    0 2px 8px rgba(0,0,0,.30),
+    0 0 30px rgba(65,105,225,.12);
 }
 
-/* Photo fills card at its NATURAL aspect ratio */
+.stack-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, rgba(135,206,235,.25), rgba(65,105,225,.15), rgba(30,144,255,.25));
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Photo fills card width, height is natural so no gaps */
 .card-img {
   width: 100%;
-  height: auto;           /* natural height — NO cropping, NO white space */
+  height: auto;
   display: block;
   pointer-events: none;
-  object-fit: contain;    /* show whole image */
-  border-radius: 14px;
+  object-fit: contain;
+  border-radius: 2px;
   transition: filter 0.3s ease;
 }
 
 /* First card (top of stack) gets a coloured glow ring */
 .stack-card.photo-glow {
   box-shadow:
-    0 12px 48px rgba(0,0,0,.7),
-    0 3px 12px  rgba(0,0,0,.4),
-    0 0  40px   rgba(65,105,225,.25);
+    0 8px 40px rgba(0,0,0,.55),
+    0 2px 8px rgba(0,0,0,.30),
+    0 0  40px rgba(65,105,225,.25);
   animation: photoGlow 3s ease-in-out infinite;
 }
 
 @keyframes photoGlow {
-  0%, 100% { box-shadow: 0 12px 48px rgba(0,0,0,.7), 0 0 40px rgba(65,105,225,.22) }
-  50%       { box-shadow: 0 12px 48px rgba(0,0,0,.7), 0 0 60px rgba(135,206,235,.40) }
+  0%, 100% { box-shadow: 0 8px 40px rgba(0,0,0,.55), 0 0 30px rgba(65,105,225,.15) }
+  50%       { box-shadow: 0 8px 40px rgba(0,0,0,.55), 0 0 55px rgba(135,206,235,.35) }
 }
 
 /* Entrance animation */
@@ -592,20 +602,22 @@ img {
   50%       { opacity: 1; }
 }
 
-/* Caption BELOW the photo — floating, not inside white box */
+/* Caption inside the white box */
 .pcap {
-  position: relative;
-  display: block;
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0; padding: 0 6px;
   text-align: center;
   font-family: 'Dancing Script', cursive;
-  font-size: clamp(15px, 4.5vw, 20px);
-  color: rgba(255,255,255,.92);
+  font-size: clamp(14px, 4vw, 18px);
+  color: #1e3a6e;
   font-weight: 700;
-  letter-spacing: .3px;
-  text-shadow: 0 2px 8px rgba(0,0,0,.6);
-  margin-top: 4px;
-  line-height: 1.3;
-  pointer-events: none;
+  letter-spacing: .2px;
+  line-height: 1;
 }
 
 

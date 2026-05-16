@@ -1,436 +1,781 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Khushi 💙 | khushi.luckyverse.tech</title>
+  <title>Khushi 💙 </title>
   <meta name="description" content="A little corner of the internet dedicated to Khushi — my best friend.">
   <meta name="theme-color" content="#050d1a">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💙</text></svg>">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💙</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
   <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-    body{
-      font-family:'Inter',sans-serif;
-      background:#050d1a;
-      color:#e0eaff;
-      min-height:100vh;
-      overflow-x:hidden;
-      -webkit-font-smoothing:antialiased;
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #050d1a;
+      color: #e0eaff;
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
     /* ── STARS ── */
-    #stars{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-    .star{position:absolute;border-radius:50%;background:#fff;animation:tw var(--d,3s) ease-in-out infinite;animation-delay:var(--dl,0s)}
-    @keyframes tw{0%,100%{opacity:.1;transform:scale(.8)}50%{opacity:.8;transform:scale(1.3)}}
+    #stars {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden
+    }
+
+    .star {
+      position: absolute;
+      border-radius: 50%;
+      background: #fff;
+      animation: tw var(--d, 3s) ease-in-out infinite;
+      animation-delay: var(--dl, 0s)
+    }
+
+    @keyframes tw {
+
+      0%,
+      100% {
+        opacity: .1;
+        transform: scale(.8)
+      }
+
+      50% {
+        opacity: .8;
+        transform: scale(1.3)
+      }
+    }
 
     /* ── ORBS ── */
-    .orb{position:fixed;border-radius:50%;pointer-events:none;filter:blur(80px);z-index:0;animation:orbF var(--d,9s) ease-in-out infinite;animation-delay:var(--dl,0s)}
-    @keyframes orbF{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-24px) scale(1.06)}}
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(80px);
+      z-index: 0;
+      animation: orbF var(--d, 9s) ease-in-out infinite;
+      animation-delay: var(--dl, 0s)
+    }
+
+    @keyframes orbF {
+
+      0%,
+      100% {
+        transform: translateY(0) scale(1)
+      }
+
+      50% {
+        transform: translateY(-24px) scale(1.06)
+      }
+    }
 
     /* ── NAV ── */
-    nav{
-      position:fixed;top:0;left:0;right:0;z-index:100;
-      display:flex;align-items:center;justify-content:space-between;
-      padding:14px clamp(20px,5vw,48px);
-      background:rgba(5,13,26,.75);
-      backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
-      border-bottom:1px solid rgba(135,206,235,.1);
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px clamp(20px, 5vw, 48px);
+      background: rgba(5, 13, 26, .75);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(135, 206, 235, .1);
     }
-    .nav-logo{font-family:'Pacifico',cursive;font-size:clamp(18px,4vw,24px);color:#87ceeb;text-decoration:none}
-    .nav-links{display:flex;gap:clamp(14px,3vw,28px);list-style:none}
-    .nav-links a{color:rgba(255,255,255,.65);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
-    .nav-links a:hover{color:#87ceeb}
+
+    .nav-logo {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(18px, 4vw, 24px);
+      color: #87ceeb;
+      text-decoration: none
+    }
+
+    .nav-links {
+      display: flex;
+      gap: clamp(14px, 3vw, 28px);
+      list-style: none
+    }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, .65);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color .2s
+    }
+
+    .nav-links a:hover {
+      color: #87ceeb
+    }
 
     /* ── HERO ── */
-    #hero{
-      position:relative;z-index:1;
-      min-height:100vh;
-      display:flex;flex-direction:column;align-items:center;justify-content:center;
-      text-align:center;
-      padding:100px clamp(20px,6vw,60px) 60px;
-      gap:20px;
+    #hero {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px clamp(20px, 6vw, 60px) 60px;
+      gap: 20px;
     }
-    .hero-badge{
-      background:linear-gradient(135deg,rgba(135,206,235,.18),rgba(65,105,225,.18));
-      border:1px solid rgba(135,206,235,.3);
-      border-radius:40px;padding:6px 18px;
-      font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
-      color:#87ceeb;backdrop-filter:blur(8px);
-      animation:fadeUp .7s ease both;
+
+    .hero-badge {
+      background: linear-gradient(135deg, rgba(135, 206, 235, .18), rgba(65, 105, 225, .18));
+      border: 1px solid rgba(135, 206, 235, .3);
+      border-radius: 40px;
+      padding: 6px 18px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #87ceeb;
+      backdrop-filter: blur(8px);
+      animation: fadeUp .7s ease both;
     }
-    .hero-name{
-      font-family:'Pacifico',cursive;
-      font-size:clamp(52px,14vw,100px);
-      color:#87ceeb;
-      text-shadow:0 0 40px rgba(30,144,255,.6),0 0 80px rgba(30,144,255,.3);
-      line-height:1;animation:fadeUp .7s .1s ease both;
+
+    .hero-name {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(52px, 14vw, 100px);
+      color: #87ceeb;
+      text-shadow: 0 0 40px rgba(30, 144, 255, .6), 0 0 80px rgba(30, 144, 255, .3);
+      line-height: 1;
+      animation: fadeUp .7s .1s ease both;
     }
-    .hero-sub{
-      font-family:'Dancing Script',cursive;
-      font-size:clamp(20px,5vw,32px);
-      color:rgba(255,255,255,.75);
-      animation:fadeUp .7s .2s ease both;
+
+    .hero-sub {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(20px, 5vw, 32px);
+      color: rgba(255, 255, 255, .75);
+      animation: fadeUp .7s .2s ease both;
     }
-    .hero-desc{
-      max-width:520px;font-size:clamp(14px,3.5vw,16px);
-      color:rgba(255,255,255,.5);line-height:1.8;
-      animation:fadeUp .7s .3s ease both;
+
+    .hero-desc {
+      max-width: 520px;
+      font-size: clamp(14px, 3.5vw, 16px);
+      color: rgba(255, 255, 255, .5);
+      line-height: 1.8;
+      animation: fadeUp .7s .3s ease both;
     }
-    .hero-btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;animation:fadeUp .7s .4s ease both}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+    .hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      animation: fadeUp .7s .4s ease both
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(28px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
 
     /* ── BUTTONS ── */
-    .btn{
-      display:inline-flex;align-items:center;gap:8px;
-      border:none;border-radius:50px;cursor:pointer;text-decoration:none;
-      font-family:'Inter',sans-serif;font-weight:600;
-      padding:clamp(12px,3vw,15px) clamp(24px,5vw,36px);
-      font-size:clamp(13px,3vw,15px);
-      transition:transform .25s,box-shadow .25s;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      padding: clamp(12px, 3vw, 15px) clamp(24px, 5vw, 36px);
+      font-size: clamp(13px, 3vw, 15px);
+      transition: transform .25s, box-shadow .25s;
     }
-    .btn-primary{background:linear-gradient(135deg,#87ceeb,#4169e1);color:#fff;box-shadow:0 8px 28px rgba(65,105,225,.45)}
-    .btn-primary:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 14px 36px rgba(65,105,225,.65)}
-    .btn-ghost{background:rgba(135,206,235,.08);border:1px solid rgba(135,206,235,.28);color:#87ceeb}
-    .btn-ghost:hover{background:rgba(135,206,235,.15);transform:translateY(-2px)}
-    .btn:active{transform:scale(.96)!important}
+
+    .btn-primary {
+      background: linear-gradient(135deg, #87ceeb, #4169e1);
+      color: #fff;
+      box-shadow: 0 8px 28px rgba(65, 105, 225, .45)
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 14px 36px rgba(65, 105, 225, .65)
+    }
+
+    .btn-ghost {
+      background: rgba(135, 206, 235, .08);
+      border: 1px solid rgba(135, 206, 235, .28);
+      color: #87ceeb
+    }
+
+    .btn-ghost:hover {
+      background: rgba(135, 206, 235, .15);
+      transform: translateY(-2px)
+    }
+
+    .btn:active {
+      transform: scale(.96) !important
+    }
 
     /* ── SECTION BASE ── */
-    section{position:relative;z-index:1;padding:80px clamp(20px,6vw,60px)}
-    .section-label{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#4169e1;margin-bottom:10px}
-    .section-title{font-family:'Pacifico',cursive;font-size:clamp(26px,6vw,42px);color:#e0eaff;margin-bottom:14px}
-    .section-sub{font-size:clamp(14px,3.5vw,16px);color:rgba(255,255,255,.5);max-width:560px;line-height:1.8}
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 80px clamp(20px, 6vw, 60px)
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #4169e1;
+      margin-bottom: 10px
+    }
+
+    .section-title {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(26px, 6vw, 42px);
+      color: #e0eaff;
+      margin-bottom: 14px
+    }
+
+    .section-sub {
+      font-size: clamp(14px, 3.5vw, 16px);
+      color: rgba(255, 255, 255, .5);
+      max-width: 560px;
+      line-height: 1.8
+    }
 
     /* ── ABOUT ── */
-    #about{background:linear-gradient(180deg,transparent,rgba(65,105,225,.04),transparent)}
-    .about-grid{
-      display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,60px);
-      align-items:center;max-width:1100px;margin:0 auto;
+    #about {
+      background: linear-gradient(180deg, transparent, rgba(65, 105, 225, .04), transparent)
     }
-    @media(max-width:700px){.about-grid{grid-template-columns:1fr}}
-    .about-img-wrap{position:relative}
-    .about-img{
-      width:100%;max-width:380px;border-radius:24px;
-      box-shadow:0 24px 60px rgba(0,0,0,.6),0 0 60px rgba(65,105,225,.2);
-      display:block;margin:0 auto;
-      border:2px solid rgba(135,206,235,.2);
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(24px, 5vw, 60px);
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
     }
-    .about-img-badge{
-      position:absolute;bottom:-16px;right:10%;
-      background:rgba(5,13,26,.9);border:1px solid rgba(135,206,235,.25);
-      backdrop-filter:blur(12px);border-radius:16px;
-      padding:10px 18px;font-size:13px;font-weight:600;color:#87ceeb;
-      display:flex;align-items:center;gap:8px;
+
+    @media(max-width:700px) {
+      .about-grid {
+        grid-template-columns: 1fr
+      }
     }
-    .about-text{display:flex;flex-direction:column;gap:20px}
-    .about-text p{font-size:clamp(14px,3.5vw,16px);color:rgba(255,255,255,.65);line-height:1.9}
-    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
-    .tag{
-      background:rgba(135,206,235,.08);border:1px solid rgba(135,206,235,.2);
-      border-radius:30px;padding:5px 14px;font-size:12px;font-weight:600;
-      color:rgba(255,255,255,.7);letter-spacing:.3px;
+
+    .about-img-wrap {
+      position: relative
+    }
+
+    .about-img {
+      width: 100%;
+      max-width: 380px;
+      border-radius: 24px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, .6), 0 0 60px rgba(65, 105, 225, .2);
+      display: block;
+      margin: 0 auto;
+      border: 2px solid rgba(135, 206, 235, .2);
+    }
+
+    .about-img-badge {
+      position: absolute;
+      bottom: -16px;
+      right: 10%;
+      background: rgba(5, 13, 26, .9);
+      border: 1px solid rgba(135, 206, 235, .25);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 10px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #87ceeb;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .about-text {
+      display: flex;
+      flex-direction: column;
+      gap: 20px
+    }
+
+    .about-text p {
+      font-size: clamp(14px, 3.5vw, 16px);
+      color: rgba(255, 255, 255, .65);
+      line-height: 1.9
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px
+    }
+
+    .tag {
+      background: rgba(135, 206, 235, .08);
+      border: 1px solid rgba(135, 206, 235, .2);
+      border-radius: 30px;
+      padding: 5px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, .7);
+      letter-spacing: .3px;
     }
 
     /* ── STATS ── */
-    .stats-row{
-      display:flex;flex-wrap:wrap;gap:16px;
-      max-width:1100px;margin:0 auto 60px;
+    .stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      max-width: 1100px;
+      margin: 0 auto 60px;
     }
-    .stat-card{
-      flex:1;min-width:140px;
-      background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(135,206,235,.04));
-      border:1px solid rgba(135,206,235,.14);
-      border-radius:20px;padding:24px 20px;text-align:center;
-      backdrop-filter:blur(8px);
+
+    .stat-card {
+      flex: 1;
+      min-width: 140px;
+      background: linear-gradient(145deg, rgba(255, 255, 255, .05), rgba(135, 206, 235, .04));
+      border: 1px solid rgba(135, 206, 235, .14);
+      border-radius: 20px;
+      padding: 24px 20px;
+      text-align: center;
+      backdrop-filter: blur(8px);
     }
-    .stat-num{font-family:'Pacifico',cursive;font-size:clamp(28px,6vw,40px);color:#87ceeb;display:block;line-height:1}
-    .stat-lbl{font-size:12px;color:rgba(255,255,255,.45);margin-top:6px;letter-spacing:.5px}
+
+    .stat-num {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(28px, 6vw, 40px);
+      color: #87ceeb;
+      display: block;
+      line-height: 1
+    }
+
+    .stat-lbl {
+      font-size: 12px;
+      color: rgba(255, 255, 255, .45);
+      margin-top: 6px;
+      letter-spacing: .5px
+    }
 
     /* ── PHOTOS ── */
-    #photos{background:linear-gradient(180deg,transparent,rgba(30,144,255,.03),transparent)}
-    .photo-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
-      gap:16px;max-width:1100px;margin:40px auto 0;
+    #photos {
+      background: linear-gradient(180deg, transparent, rgba(30, 144, 255, .03), transparent)
     }
-    .photo-item{
-      position:relative;border-radius:16px;overflow:hidden;
-      cursor:pointer;
-      box-shadow:0 8px 30px rgba(0,0,0,.5);
-      transition:transform .3s,box-shadow .3s;
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      max-width: 1100px;
+      margin: 40px auto 0;
     }
-    .photo-item:hover{transform:scale(1.03) translateY(-4px);box-shadow:0 16px 48px rgba(65,105,225,.35)}
-    .photo-item img{width:100%;height:220px;object-fit:cover;display:block;transition:transform .4s}
-    .photo-item:hover img{transform:scale(1.08)}
-    .photo-overlay{
-      position:absolute;inset:0;
-      background:linear-gradient(to top,rgba(5,13,26,.8) 0%,transparent 50%);
-      display:flex;align-items:flex-end;padding:14px;
-      opacity:0;transition:opacity .3s;
+
+    .photo-item {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, .5);
+      transition: transform .3s, box-shadow .3s;
     }
-    .photo-item:hover .photo-overlay{opacity:1}
-    .photo-cap{font-family:'Dancing Script',cursive;font-size:16px;font-weight:700;color:#fff}
+
+    .photo-item:hover {
+      transform: scale(1.03) translateY(-4px);
+      box-shadow: 0 16px 48px rgba(65, 105, 225, .35)
+    }
+
+    .photo-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      transition: transform .4s
+    }
+
+    .photo-item:hover img {
+      transform: scale(1.08)
+    }
+
+    .photo-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(5, 13, 26, .8) 0%, transparent 50%);
+      display: flex;
+      align-items: flex-end;
+      padding: 14px;
+      opacity: 0;
+      transition: opacity .3s;
+    }
+
+    .photo-item:hover .photo-overlay {
+      opacity: 1
+    }
+
+    .photo-cap {
+      font-family: 'Dancing Script', cursive;
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff
+    }
 
     /* ── LINKS ── */
-    #links{max-width:1100px;margin:0 auto}
-    .links-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:40px}
-    .link-card{
-      position:relative;overflow:hidden;
-      background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(135,206,235,.03));
-      border:1px solid rgba(135,206,235,.14);
-      border-radius:20px;padding:28px 24px;
-      text-decoration:none;color:inherit;
-      transition:transform .25s,border-color .25s,box-shadow .25s;
-      display:flex;flex-direction:column;gap:10px;
+    #links {
+      max-width: 1100px;
+      margin: 0 auto
     }
-    .link-card:hover{
-      transform:translateY(-5px);
-      border-color:rgba(135,206,235,.35);
-      box-shadow:0 16px 40px rgba(65,105,225,.25);
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 40px
     }
-    .link-icon{font-size:36px;display:block}
-    .link-title{font-weight:700;font-size:17px;color:#e0eaff}
-    .link-desc{font-size:13px;color:rgba(255,255,255,.45);line-height:1.6}
-    .link-arrow{position:absolute;top:20px;right:20px;color:rgba(255,255,255,.25);font-size:18px;transition:color .2s,transform .2s}
-    .link-card:hover .link-arrow{color:#87ceeb;transform:translate(3px,-3px)}
+
+    .link-card {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(145deg, rgba(255, 255, 255, .05), rgba(135, 206, 235, .03));
+      border: 1px solid rgba(135, 206, 235, .14);
+      border-radius: 20px;
+      padding: 28px 24px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform .25s, border-color .25s, box-shadow .25s;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .link-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(135, 206, 235, .35);
+      box-shadow: 0 16px 40px rgba(65, 105, 225, .25);
+    }
+
+    .link-icon {
+      font-size: 36px;
+      display: block
+    }
+
+    .link-title {
+      font-weight: 700;
+      font-size: 17px;
+      color: #e0eaff
+    }
+
+    .link-desc {
+      font-size: 13px;
+      color: rgba(255, 255, 255, .45);
+      line-height: 1.6
+    }
+
+    .link-arrow {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: rgba(255, 255, 255, .25);
+      font-size: 18px;
+      transition: color .2s, transform .2s
+    }
+
+    .link-card:hover .link-arrow {
+      color: #87ceeb;
+      transform: translate(3px, -3px)
+    }
 
     /* ── QUOTE ── */
-    #quote{
-      text-align:center;
-      background:linear-gradient(135deg,rgba(65,105,225,.08),rgba(135,206,235,.05));
-      border-top:1px solid rgba(135,206,235,.1);
-      border-bottom:1px solid rgba(135,206,235,.1);
+    #quote {
+      text-align: center;
+      background: linear-gradient(135deg, rgba(65, 105, 225, .08), rgba(135, 206, 235, .05));
+      border-top: 1px solid rgba(135, 206, 235, .1);
+      border-bottom: 1px solid rgba(135, 206, 235, .1);
     }
-    .quote-text{
-      font-family:'Dancing Script',cursive;
-      font-size:clamp(22px,5vw,34px);
-      color:rgba(255,255,255,.85);
-      max-width:700px;margin:0 auto 16px;
-      line-height:1.6;
+
+    .quote-text {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(22px, 5vw, 34px);
+      color: rgba(255, 255, 255, .85);
+      max-width: 700px;
+      margin: 0 auto 16px;
+      line-height: 1.6;
     }
-    .quote-author{font-size:13px;color:rgba(255,255,255,.4);letter-spacing:1px}
+
+    .quote-author {
+      font-size: 13px;
+      color: rgba(255, 255, 255, .4);
+      letter-spacing: 1px
+    }
 
     /* ── FOOTER ── */
-    footer{
-      text-align:center;padding:40px 20px;
-      border-top:1px solid rgba(135,206,235,.08);
-      color:rgba(255,255,255,.3);font-size:13px;line-height:2;
-      position:relative;z-index:1;
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid rgba(135, 206, 235, .08);
+      color: rgba(255, 255, 255, .3);
+      font-size: 13px;
+      line-height: 2;
+      position: relative;
+      z-index: 1;
     }
-    footer a{color:#4169e1;text-decoration:none}
+
+    footer a {
+      color: #4169e1;
+      text-decoration: none
+    }
 
     /* ── SCROLL REVEAL ── */
-    .reveal{opacity:0;transform:translateY(36px);transition:opacity .7s ease,transform .7s ease}
-    .reveal.visible{opacity:1;transform:translateY(0)}
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity .7s ease, transform .7s ease
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0)
+    }
 
     /* Mobile nav */
-    @media(max-width:550px){
-      .nav-links{display:none}
-      .photo-grid{grid-template-columns:repeat(2,1fr)}
-      .photo-item img{height:160px}
+    @media(max-width:550px) {
+      .nav-links {
+        display: none
+      }
+
+      .photo-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .photo-item img {
+        height: 160px
+      }
     }
   </style>
 </head>
+
 <body>
 
-<!-- Stars & Orbs -->
-<div id="stars"></div>
-<div class="orb" style="width:350px;height:350px;background:rgba(30,144,255,.07);left:-100px;top:5%;--d:10s"></div>
-<div class="orb" style="width:280px;height:280px;background:rgba(135,206,235,.05);right:-80px;top:40%;--d:12s;--dl:-4s"></div>
-<div class="orb" style="width:200px;height:200px;background:rgba(65,105,225,.08);left:35%;top:70%;--d:9s;--dl:-2s"></div>
-
-<!-- Nav -->
-<nav>
-  <a class="nav-logo" href="/">Khushi 💙</a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#photos">Gallery</a></li>
-    <li><a href="#links">Links</a></li>
-    <li><a href="/birthday/2026/" class="btn btn-primary" style="padding:8px 18px;font-size:13px">🎁 Surprise</a></li>
-  </ul>
-</nav>
-
-<!-- Hero -->
-<section id="hero">
-  <div class="hero-badge">✨ A special corner for a special person</div>
-  <h1 class="hero-name">Khushi</h1>
-  <p class="hero-sub">My best friend in the whole world 🌷</p>
-  <p class="hero-desc">
-    This little piece of the internet is dedicated to someone who makes every day brighter,
-    louder, and a thousand times more fun. Here's to you, Khushi 💙
-  </p>
-  <div class="hero-btns">
-    <a href="/birthday/2026/" class="btn btn-primary">🎁 Open Birthday Surprise</a>
-    <a href="#about" class="btn btn-ghost">Learn More ↓</a>
+  <!-- Stars & Orbs -->
+  <div id="stars"></div>
+  <div class="orb" style="width:350px;height:350px;background:rgba(30,144,255,.07);left:-100px;top:5%;--d:10s"></div>
+  <div class="orb"
+    style="width:280px;height:280px;background:rgba(135,206,235,.05);right:-80px;top:40%;--d:12s;--dl:-4s"></div>
+  <div class="orb" style="width:200px;height:200px;background:rgba(65,105,225,.08);left:35%;top:70%;--d:9s;--dl:-2s">
   </div>
-</section>
 
-<!-- Stats -->
-<div style="position:relative;z-index:1;padding:0 clamp(20px,6vw,60px) 20px">
-  <div class="stats-row reveal">
-    <div class="stat-card">
-      <span class="stat-num">20</span>
-      <div class="stat-lbl">Turning 20 in 2026 🎂</div>
-    </div>
-    <div class="stat-card">
-      <span class="stat-num">∞</span>
-      <div class="stat-lbl">Years of Friendship 💙</div>
-    </div>
-    <div class="stat-card">
-      <span class="stat-num">5</span>
-      <div class="stat-lbl">Photos in Gallery 📸</div>
-    </div>
-    <div class="stat-card">
-      <span class="stat-num">1</span>
-      <div class="stat-lbl">Best Friend in the World 🌍</div>
-    </div>
-  </div>
-</div>
+  <!-- Nav -->
+  <nav>
+    <a class="nav-logo" href="/">Khushi 💙</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#photos">Gallery</a></li>
+      <li><a href="#links">Links</a></li>
+      <li><a href="/birthday/2026/" class="btn btn-primary" style="padding:8px 18px;font-size:13px">🎁 Surprise</a></li>
+    </ul>
+  </nav>
 
-<!-- About -->
-<section id="about">
-  <div class="about-grid reveal">
-    <div class="about-img-wrap">
-      <img class="about-img" src="Birthday/2026/photos/photo4.jpg" alt="Khushi">
-      <div class="about-img-badge">💙 Khushi &nbsp;•&nbsp; Best Friend</div>
+  <!-- Hero -->
+  <section id="hero">
+    <div class="hero-badge">✨ A special corner for a special person</div>
+    <h1 class="hero-name">Khushi</h1>
+    <p class="hero-sub">My best friend in the whole world 🌷</p>
+    <p class="hero-desc">
+      This little piece of the internet is dedicated to someone who makes every day brighter,
+      louder, and a thousand times more fun. Here's to you, Khushi 💙
+    </p>
+    <div class="hero-btns">
+      <a href="/birthday/2026/" class="btn btn-primary">🎁 Open Birthday Surprise</a>
+      <a href="#about" class="btn btn-ghost">Learn More ↓</a>
     </div>
-    <div class="about-text">
-      <div>
-        <div class="section-label">About Her</div>
-        <h2 class="section-title">Who is Khushi?</h2>
+  </section>
+
+  <!-- Stats -->
+  <div style="position:relative;z-index:1;padding:0 clamp(20px,6vw,60px) 20px">
+    <div class="stats-row reveal">
+      <div class="stat-card">
+        <span class="stat-num">20</span>
+        <div class="stat-lbl">Turning 20 in 2026 🎂</div>
       </div>
-      <p>Khushi is one of those rare people who can light up a room just by walking in. She's kind, funny, and has this energy that's totally contagious — once you're her friend, you're lucky for life.</p>
-      <p>She was born on <strong style="color:#87ceeb">18 May 2006</strong>, which makes her a <strong style="color:#87ceeb">Taurus</strong> ♉ — grounded, loyal, and always there when it matters most.</p>
-      <p>From late night conversations to the silliest inside jokes, she's the kind of friend everyone deserves but few are lucky enough to have.</p>
-      <div class="tags">
-        <span class="tag">🌸 Kind</span>
-        <span class="tag">😂 Funny</span>
-        <span class="tag">💫 Loyal</span>
-        <span class="tag">🎵 Music lover</span>
-        <span class="tag">📚 Smart</span>
-        <span class="tag">♉ Taurus</span>
+      <div class="stat-card">
+        <span class="stat-num">∞</span>
+        <div class="stat-lbl">Years of Friendship 💙</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">5</span>
+        <div class="stat-lbl">Photos in Gallery 📸</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">1</span>
+        <div class="stat-lbl">Best Friend in the World 🌍</div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- Photos -->
-<section id="photos">
-  <div style="max-width:1100px;margin:0 auto">
-    <div class="reveal">
-      <div class="section-label">Gallery</div>
-      <h2 class="section-title">Khushi's Photobooth 📸</h2>
-      <p class="section-sub">A few moments captured — every one of them perfect.</p>
-    </div>
-    <div class="photo-grid reveal">
-      <div class="photo-item">
-        <img src="Birthday/2026/photos/photo1.jpg" alt="Khushi 💙">
-        <div class="photo-overlay"><span class="photo-cap">Khushi 💙</span></div>
+  <!-- About -->
+  <section id="about">
+    <div class="about-grid reveal">
+      <div class="about-img-wrap">
+        <img class="about-img" src="Birthday/2026/photos/photo4.jpg" alt="Khushi">
+        <div class="about-img-badge">💙 Khushi &nbsp;•&nbsp; Best Friend</div>
       </div>
-      <div class="photo-item">
-        <img src="Birthday/2026/photos/photo2.jpg" alt="My Bestie 🌸">
-        <div class="photo-overlay"><span class="photo-cap">My Bestie 🌸</span></div>
-      </div>
-      <div class="photo-item">
-        <img src="Birthday/2026/photos/photo3.jpg" alt="Always Smiling ✨">
-        <div class="photo-overlay"><span class="photo-cap">Always Smiling ✨</span></div>
-      </div>
-      <div class="photo-item">
-        <img src="Birthday/2026/photos/photo4.jpg" alt="My Favourite Human 🌷">
-        <div class="photo-overlay"><span class="photo-cap">My Favourite Human 🌷</span></div>
-      </div>
-      <div class="photo-item">
-        <img src="Birthday/2026/photos/photo5.jpg" alt="Happy Birthday! 🎂">
-        <div class="photo-overlay"><span class="photo-cap">Happy Birthday! 🎂</span></div>
+      <div class="about-text">
+        <div>
+          <div class="section-label">About Her</div>
+          <h2 class="section-title">Who is Khushi?</h2>
+        </div>
+        <p>Khushi is one of those rare people who can light up a room just by walking in. She's kind, funny, and has
+          this energy that's totally contagious — once you're her friend, you're lucky for life.</p>
+        <p>She was born on <strong style="color:#87ceeb">18 May 2006</strong>, which makes her a <strong
+            style="color:#87ceeb">Taurus</strong> ♉ — grounded, loyal, and always there when it matters most.</p>
+        <p>From late night conversations to the silliest inside jokes, she's the kind of friend everyone deserves but
+          few are lucky enough to have.</p>
+        <div class="tags">
+          <span class="tag">🌸 Kind</span>
+          <span class="tag">💌 Gill Paglu</span>
+          <span class="tag">💫 Loyal</span>
+          <span class="tag">🎵 Music lover</span>
+          <span class="tag">📚 Smart</span>
+          <span class="tag">♉ Taurus</span>
+        </div>
       </div>
     </div>
-    <div style="text-align:center;margin-top:32px" class="reveal">
-      <a href="/birthday/2026/" class="btn btn-primary">🎉 See the Birthday Surprise</a>
+  </section>
+
+  <!-- Photos -->
+  <section id="photos">
+    <div style="max-width:1100px;margin:0 auto">
+      <div class="reveal">
+        <div class="section-label">Gallery</div>
+        <h2 class="section-title">Khushi's Photobooth 📸</h2>
+        <p class="section-sub">A few moments captured — every one of them perfect.</p>
+      </div>
+      <div class="photo-grid reveal">
+        <div class="photo-item">
+          <img src="Birthday/2026/photos/photo1.jpg" alt="Khushi 💙">
+          <div class="photo-overlay"><span class="photo-cap">Khushi 💙</span></div>
+        </div>
+        <div class="photo-item">
+          <img src="Birthday/2026/photos/photo2.jpg" alt="My Bestie 🌸">
+          <div class="photo-overlay"><span class="photo-cap">My Bestie 🌸</span></div>
+        </div>
+        <div class="photo-item">
+          <img src="Birthday/2026/photos/photo3.jpg" alt="Always Smiling ✨">
+          <div class="photo-overlay"><span class="photo-cap">Always Smiling ✨</span></div>
+        </div>
+        <div class="photo-item">
+          <img src="Birthday/2026/photos/photo4.jpg" alt="My Favourite Human 🌷">
+          <div class="photo-overlay"><span class="photo-cap">My Favourite Human 🌷</span></div>
+        </div>
+        <div class="photo-item">
+          <img src="Birthday/2026/photos/photo5.jpg" alt="Happy Birthday! 🎂">
+          <div class="photo-overlay"><span class="photo-cap">Happy Birthday! 🎂</span></div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:32px" class="reveal">
+        <a href="/birthday/2026/" class="btn btn-primary">🎉 See the Birthday Surprise</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Quote -->
-<section id="quote">
-  <p class="quote-text reveal">"A best friend is someone who knows all your stories, believes in all your dreams, and is still there at the end of every hard day."</p>
-  <p class="quote-author reveal">— For Khushi, always 💙</p>
-</section>
+  <!-- Quote -->
+  <section id="quote">
+    <p class="quote-text reveal">"A best friend is someone who knows all your stories, believes in all your dreams, and
+      is still there at the end of every hard day."</p>
+    <p class="quote-author reveal">— For Khushi, always 💙</p>
+  </section>
 
-<!-- Links -->
-<section style="position:relative;z-index:1;padding:80px clamp(20px,6vw,60px)">
-  <div id="links">
-    <div class="reveal">
-      <div class="section-label">Quick Links</div>
-      <h2 class="section-title">Explore 🌐</h2>
-      <p class="section-sub">Everything made with love, just for Khushi.</p>
+  <!-- Links -->
+  <section style="position:relative;z-index:1;padding:80px clamp(20px,6vw,60px)">
+    <div id="links">
+      <div class="reveal">
+        <div class="section-label">Quick Links</div>
+        <h2 class="section-title">Explore 🌐</h2>
+        <p class="section-sub">Everything made with love, just for Khushi.</p>
+      </div>
+      <div class="links-grid reveal">
+        <a href="/birthday/2026/" class="link-card">
+          <span class="link-icon">🎁</span>
+          <span class="link-title">Birthday Surprise 2026</span>
+          <span class="link-desc">The full interactive birthday experience — gallery, cake, letter and more.</span>
+          <span class="link-arrow">↗</span>
+        </a>
+        <a href="/birthday/2026/#s3" class="link-card">
+          <span class="link-icon">📸</span>
+          <span class="link-title">Photo Gallery</span>
+          <span class="link-desc">A stacked Polaroid gallery of Khushi's best moments.</span>
+          <span class="link-arrow">↗</span>
+        </a>
+        <a href="/birthday/2026/#s5" class="link-card">
+          <span class="link-icon">💌</span>
+          <span class="link-title">Birthday Letter</span>
+          <span class="link-desc">A heartfelt letter written just for her special day.</span>
+          <span class="link-arrow">↗</span>
+        </a>
+      </div>
     </div>
-    <div class="links-grid reveal">
-      <a href="/birthday/2026/" class="link-card">
-        <span class="link-icon">🎁</span>
-        <span class="link-title">Birthday Surprise 2026</span>
-        <span class="link-desc">The full interactive birthday experience — gallery, cake, letter and more.</span>
-        <span class="link-arrow">↗</span>
-      </a>
-      <a href="/birthday/2026/#s3" class="link-card">
-        <span class="link-icon">📸</span>
-        <span class="link-title">Photo Gallery</span>
-        <span class="link-desc">A stacked Polaroid gallery of Khushi's best moments.</span>
-        <span class="link-arrow">↗</span>
-      </a>
-      <a href="/birthday/2026/#s5" class="link-card">
-        <span class="link-icon">💌</span>
-        <span class="link-title">Birthday Letter</span>
-        <span class="link-desc">A heartfelt letter written just for her special day.</span>
-        <span class="link-arrow">↗</span>
-      </a>
-      <a href="https://luckyverse.tech" target="_blank" rel="noopener" class="link-card">
-        <span class="link-icon">🌐</span>
-        <span class="link-title">LuckyVerse</span>
-        <span class="link-desc">Made by Lucky — the main hub of the LuckyVerse network.</span>
-        <span class="link-arrow">↗</span>
-      </a>
-      <a href="https://invite.luckyverse.tech" target="_blank" rel="noopener" class="link-card">
-        <span class="link-icon">🎉</span>
-        <span class="link-title">Party Invite</span>
-        <span class="link-desc">The official Inferno 2026 party invitation page.</span>
-        <span class="link-arrow">↗</span>
-      </a>
-      <a href="mailto:lucky@luckyverse.tech" class="link-card">
-        <span class="link-icon">📧</span>
-        <span class="link-title">Say Hello</span>
-        <span class="link-desc">Want to send a birthday message? Drop a mail!</span>
-        <span class="link-arrow">↗</span>
-      </a>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- Footer -->
-<footer>
-  <p style="font-family:'Dancing Script',cursive;font-size:20px;color:rgba(255,255,255,.6);margin-bottom:8px">Happy Birthday, Khushi 🌷</p>
-  <p>Made with 💙 by <a href="https://luckyverse.tech">Lucky</a> &nbsp;•&nbsp; <a href="/birthday/2026/">Birthday Surprise</a> &nbsp;•&nbsp; 2026</p>
-  <p style="margin-top:6px;font-size:11px;opacity:.5">khushi.luckyverse.tech</p>
-</footer>
+  <!-- Footer -->
+  <footer>
+    <p style="font-family:'Dancing Script',cursive;font-size:20px;color:rgba(255,255,255,.6);margin-bottom:8px">Happy
+      Birthday, Khushi 🌷</p>
+    <p>Made with ❤️ by <a href="https://luckyverse.tech">Lucky</a> &copy; 2026</p>
+    <p style="margin-top:6px;font-size:11px;opacity:.5">khushi.luckyverse.tech</p>
+  </footer>
 
-<script>
-(function(){
-  // Stars
-  var sb = document.getElementById('stars');
-  for(var i=0;i<80;i++){
-    var s=document.createElement('div'); s.className='star';
-    var sz=Math.random()*2.2+0.4;
-    s.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;--d:'+(2+Math.random()*4)+'s;--dl:-'+(Math.random()*4)+'s';
-    sb.appendChild(s);
-  }
+  <script>
+    (function () {
+      // Stars
+      var sb = document.getElementById('stars');
+      for (var i = 0; i < 80; i++) {
+        var s = document.createElement('div'); s.className = 'star';
+        var sz = Math.random() * 2.2 + 0.4;
+        s.style.cssText = 'width:' + sz + 'px;height:' + sz + 'px;left:' + Math.random() * 100 + '%;top:' + Math.random() * 100 + '%;--d:' + (2 + Math.random() * 4) + 's;--dl:-' + (Math.random() * 4) + 's';
+        sb.appendChild(s);
+      }
 
-  // Scroll reveal
-  var obs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
-  },{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el); });
-})();
-</script>
+      // Scroll reveal
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+      }, { threshold: .12 });
+      document.querySelectorAll('.reveal').forEach(function (el) { obs.observe(el); });
+    })();
+  </script>
 </body>
+
 </html>
