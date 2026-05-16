@@ -269,21 +269,26 @@ img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: 'Pacifico', cursive;
-  font-size: clamp(60px, 18vmin, 180px);
-  background: linear-gradient(135deg, #87ceeb, #4169e1, #1e90ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-family: 'Pacifico', cursive !important;
+  font-size: clamp(80px, 22vmin, 200px);
+  /* solid colour — visible everywhere, no clip needed */
+  color: #87ceeb;
+  text-shadow:
+    0 0 30px rgba(30,144,255,.9),
+    0 0 60px rgba(30,144,255,.5),
+    0 0 100px rgba(135,206,235,.3);
   z-index: 10;
   opacity: 0;
-  transition: opacity .4s;
-  filter: drop-shadow(0 0 20px rgba(30, 144, 255, .8));
-  pointer-events: none
+  transition: opacity .35s ease, transform .35s ease;
+  filter: none;
+  pointer-events: none;
+  line-height: 1;
+  letter-spacing: -2px;
 }
 
 #countdown.show {
-  opacity: 1
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.05);
 }
 
 #textDisplay {

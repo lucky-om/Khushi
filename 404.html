@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<!-- Coded by Lucky -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <title>404 — Page Not Found | Khushi's Birthday</title>
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#0a1628">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>">
+  <!-- Pacifico -->
+  <link rel="stylesheet" href="Birthday/2026/css/pacifico.css">
+  <!-- Dancing Script -->
+  <link rel="stylesheet" href="Birthday/2026/css/dancing-script.css">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      width: 100%;
+      background: linear-gradient(160deg, #050d1a 0%, #0a1628 50%, #0d1b3e 100%);
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    /* ── Stars bg ── */
+    #stars-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .star {
+      position: absolute;
+      border-radius: 50%;
+      background: #fff;
+      animation: tw var(--d, 3s) ease-in-out infinite;
+      animation-delay: var(--dl, 0s);
+    }
+
+    @keyframes tw {
+      0%, 100% { opacity: .12; transform: scale(1); }
+      50%       { opacity: .8;  transform: scale(1.5); }
+    }
+
+    /* ── Glowing orbs ── */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(70px);
+      animation: orbF var(--d, 9s) ease-in-out infinite;
+      animation-delay: var(--dl, 0s);
+      z-index: 0;
+    }
+
+    @keyframes orbF {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50%       { transform: translateY(-28px) scale(1.08); }
+    }
+
+    /* ── Floating emojis ── */
+    .fem {
+      position: fixed;
+      opacity: .14;
+      pointer-events: none;
+      animation: femF var(--d, 8s) ease-in-out infinite;
+      animation-delay: var(--dl, 0s);
+      z-index: 0;
+    }
+
+    @keyframes femF {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50%       { transform: translateY(-18px) rotate(8deg); }
+    }
+
+    /* ── Main card ── */
+    .card-404 {
+      position: relative;
+      z-index: 2;
+      background: linear-gradient(145deg,
+        rgba(255,255,255,.09) 0%,
+        rgba(135,206,235,.05) 50%,
+        rgba(65,105,225,.07) 100%);
+      border: 1px solid rgba(135,206,235,.22);
+      backdrop-filter: blur(32px) saturate(160%);
+      -webkit-backdrop-filter: blur(32px) saturate(160%);
+      border-radius: 32px;
+      padding: clamp(36px, 8vw, 64px) clamp(28px, 8vw, 64px);
+      max-width: min(92vw, 520px);
+      width: 100%;
+      text-align: center;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,.06),
+        0 28px 80px rgba(65,105,225,.24),
+        inset 0 1px 0 rgba(255,255,255,.10);
+      animation: cardIn .9s cubic-bezier(.34,1.56,.64,1) both;
+    }
+
+    @keyframes cardIn {
+      from { opacity: 0; transform: scale(.78) translateY(32px); }
+      to   { opacity: 1; transform: scale(1)   translateY(0);    }
+    }
+
+    /* ── 404 Number ── */
+    .num-404 {
+      font-family: 'Pacifico', cursive !important;
+      font-size: clamp(72px, 20vw, 120px);
+      color: #87ceeb;
+      text-shadow:
+        0 0 30px rgba(30,144,255,.9),
+        0 0 60px rgba(30,144,255,.5),
+        0 0 100px rgba(135,206,235,.25);
+      line-height: 1;
+      animation: numPulse 3s ease-in-out infinite;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    @keyframes numPulse {
+      0%, 100% { text-shadow: 0 0 30px rgba(30,144,255,.9), 0 0 60px rgba(30,144,255,.5); }
+      50%       { text-shadow: 0 0 40px rgba(30,144,255,1),  0 0 80px rgba(30,144,255,.7), 0 0 120px rgba(135,206,235,.4); }
+    }
+
+    /* ── Icon ── */
+    .icon-404 {
+      font-size: clamp(44px, 12vw, 72px);
+      display: block;
+      animation: bounce 2s ease-in-out infinite;
+      margin-bottom: 12px;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-12px); }
+    }
+
+    /* ── Heading ── */
+    .h1-404 {
+      font-family: 'Pacifico', cursive !important;
+      font-size: clamp(18px, 5vw, 26px);
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    /* ── Sub text ── */
+    .sub-404 {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+      font-size: clamp(13px, 3.5vw, 16px);
+      color: rgba(255,255,255,.6);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    /* ── Divider ── */
+    .div-404 {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(135,206,235,.3), transparent);
+      margin: 18px 0;
+    }
+
+    /* ── Buttons ── */
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 50px;
+      padding: clamp(11px, 3vw, 14px) clamp(24px, 6vw, 38px);
+      font-size: clamp(13px, 3.5vw, 15px);
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .25s, box-shadow .25s;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+      letter-spacing: .3px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #87ceeb, #4169e1);
+      color: #fff;
+      box-shadow: 0 8px 28px rgba(65,105,225,.45);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 14px 36px rgba(65,105,225,.65);
+    }
+
+    .btn-primary:active { transform: scale(.96); }
+
+    .btn-ghost {
+      background: rgba(135,206,235,.1);
+      border: 1px solid rgba(135,206,235,.28);
+      color: #87ceeb;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(135,206,235,.18);
+      transform: translateY(-2px);
+    }
+
+    .btn-ghost:active { transform: scale(.96); }
+
+    /* ── Made by ── */
+    .made-404 {
+      position: fixed;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,.28);
+      font-size: 12px;
+      letter-spacing: .4px;
+      z-index: 2;
+      white-space: nowrap;
+    }
+
+    /* ── Responsive ── */
+    @media (min-width: 600px) {
+      .card-404 { padding: 52px 52px; }
+      .num-404  { font-size: 110px; }
+    }
+
+    @media (max-height: 520px) and (orientation: landscape) {
+      .card-404 { padding: 22px 32px; }
+      .icon-404 { font-size: 36px; margin-bottom: 6px; }
+      .num-404  { font-size: 60px; }
+      .h1-404   { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Stars background -->
+  <div id="stars-bg"></div>
+
+  <!-- Glowing orbs -->
+  <div class="orb" style="width:280px;height:280px;background:rgba(30,144,255,.08);left:-80px;top:5%;--d:9s;--dl:-2s"></div>
+  <div class="orb" style="width:220px;height:220px;background:rgba(135,206,235,.06);right:-60px;bottom:10%;--d:11s;--dl:-4s"></div>
+  <div class="orb" style="width:180px;height:180px;background:rgba(65,105,225,.09);left:40%;top:55%;--d:8s;--dl:-1s"></div>
+
+  <!-- Floating decorative emojis -->
+  <span class="fem" style="font-size:22px;left:5%;top:8%;--d:7s;--dl:-1s">💙</span>
+  <span class="fem" style="font-size:18px;left:88%;top:14%;--d:9s;--dl:-3s">🌸</span>
+  <span class="fem" style="font-size:20px;left:8%;top:72%;--d:8s;--dl:-5s">✨</span>
+  <span class="fem" style="font-size:16px;left:85%;top:68%;--d:7s;--dl:-2s">💫</span>
+  <span class="fem" style="font-size:24px;left:50%;top:3%;--d:10s;--dl:-4s">🌟</span>
+
+  <!-- Main card -->
+  <div class="card-404">
+    <span class="icon-404">🎁</span>
+    <span class="num-404">404</span>
+    <h1 class="h1-404">Oops! Page Lost in Space</h1>
+    <div class="div-404"></div>
+    <p class="sub-404">
+      This page doesn't exist, but<br>
+      Khushi's surprise definitely does! 💙<br>
+      Let's get you back to the celebration.
+    </p>
+    <div class="btn-row">
+      <a href="/birthday/2026/" class="btn btn-primary">🎉 Go to Surprise</a>
+      <a href="/"               class="btn btn-ghost">🏠 Home</a>
+    </div>
+  </div>
+
+  <p class="made-404">Made with ❤️ by Lucky &copy; 2026</p>
+
+  <script>
+    /* Generate twinkling stars */
+    var bg = document.getElementById('stars-bg');
+    for (var i = 0; i < 90; i++) {
+      var s = document.createElement('div');
+      s.className = 'star';
+      var sz = Math.random() * 2.4 + 0.4;
+      s.style.cssText =
+        'width:' + sz + 'px;height:' + sz + 'px;' +
+        'left:'  + Math.random() * 100 + '%;' +
+        'top:'   + Math.random() * 100 + '%;' +
+        '--d:'   + (2 + Math.random() * 4) + 's;' +
+        '--dl:-' + (Math.random() * 4)     + 's';
+      bg.appendChild(s);
+    }
+  </script>
+</body>
+</html>
