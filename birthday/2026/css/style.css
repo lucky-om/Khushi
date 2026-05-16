@@ -534,13 +534,13 @@ img {
   pointer-events: none;
 }
 
-/* Photo fills card width, height is natural so no gaps */
+/* Photo fills card width and forms a perfect square */
 .card-img {
   width: 100%;
-  height: auto;
+  aspect-ratio: 1 / 1;
   display: block;
   pointer-events: none;
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 2px;
   transition: filter 0.3s ease;
 }
