@@ -515,7 +515,8 @@ img {
   inset: 0;
   background: #fff;
   border-radius: 4px;
-  padding: 10px 10px 52px; /* top/sides 10px, bottom 52px for caption */
+  /* 8px photo padding, 40px caption strip at bottom */
+  padding: 8px 8px 40px;
   box-shadow:
     0 8px 40px rgba(0,0,0,.55),
     0 2px 8px  rgba(0,0,0,.30),
@@ -541,9 +542,9 @@ img {
 /* The actual photo — fills card minus caption strip */
 .card-img {
   width: 100%;
-  height: calc(100% - 52px);
+  height: calc(100% - 40px);
   object-fit: cover;
-  object-position: center center; /* show face in centre */
+  object-position: 50% 30%; /* slightly above center — shows face in most portrait shots */
   border-radius: 2px;
   display: block;
   pointer-events: none;
@@ -607,21 +608,21 @@ img {
   50%       { box-shadow: 0 8px 40px rgba(0,0,0,.55), 0 0 55px rgba(135,206,235,.30) }
 }
 
-/* Caption — centred in the 52px white bottom strip */
+/* Caption — centred in the 40px white bottom strip */
 .pcap {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 52px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0;
-  padding: 0 8px;
+  padding: 0 6px;
   text-align: center;
   font-family: 'Dancing Script', cursive;
-  font-size: clamp(14px, 4vw, 18px);
+  font-size: clamp(13px, 3.8vw, 17px);
   color: #1e3a6e;
   font-weight: 700;
   letter-spacing: .2px;
@@ -1034,9 +1035,9 @@ img {
     height: min(56vw, 56vh, 380px);
     width:  min(56vw, 56vh, 380px);
   }
-  .pcap { font-size: 20px; height: 58px; }
-  .stack-card { padding: 12px 12px 58px; }
-  .card-img { height: calc(100% - 58px); }
+  .stack-card { padding: 10px 10px 48px; }
+  .pcap { font-size: 18px; height: 48px; }
+  .card-img { height: calc(100% - 48px); }
 }
 
 @media (min-width: 768px) {
@@ -1050,9 +1051,9 @@ img {
     height: min(52vw, 58vh, 420px);
     width:  min(52vw, 58vh, 420px);
   }
-  .stack-card { padding: 14px 14px 62px; }
-  .pcap { font-size: 22px; height: 62px; }
-  .card-img { height: calc(100% - 62px); }
+  .stack-card { padding: 12px 12px 52px; }
+  .pcap { font-size: 20px; height: 52px; }
+  .card-img { height: calc(100% - 52px); }
   .letter { max-width: 680px; padding: 44px 52px; }
   .lbody { font-size: 17px; }
 }
