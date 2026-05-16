@@ -151,24 +151,17 @@ function buildGallery() {
     card.style.setProperty('--dy', dy + 'px');
     card.style.transform = 'translate(' + dx + 'px, ' + dy + 'px) rotate(' + rot + 'deg)';
     
-    var img = new Image();
+    var img = document.createElement('img');
     img.src = p.src;
     img.alt = p.cap;
-    img.style.opacity = '1';
-    
-    var placeholder = document.createElement('div');
-    placeholder.className = 'ph-placeholder';
-    placeholder.innerHTML = '<span>🖼️</span><p>Add your photos to<br><strong>photos/</strong> folder</p>';
-    
-    img.onload = function() { placeholder.style.display = 'none'; };
-    img.onerror = function() { img.style.display = 'none'; placeholder.style.display = 'flex'; };
+    img.draggable = false;
+    img.className = 'card-img';
 
     var cap = document.createElement('p');
     cap.className = 'pcap';
     cap.textContent = p.cap;
 
     card.appendChild(img);
-    card.appendChild(placeholder);
     card.appendChild(cap);
     container.appendChild(card);
     cards.push(card);
