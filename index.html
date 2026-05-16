@@ -408,16 +408,17 @@
 
     .photo-item {
       position: relative;
-      border-radius: 16px;
-      overflow: hidden;
+      background: #fff;
+      border-radius: 4px;
+      padding: 8px 8px 44px 8px;
       cursor: pointer;
       box-shadow: 0 8px 30px rgba(0, 0, 0, .5);
       transition: transform .3s, box-shadow .3s;
     }
 
     .photo-item:hover {
-      transform: scale(1.03) translateY(-4px);
-      box-shadow: 0 16px 48px rgba(65, 105, 225, .35)
+      transform: scale(1.03) translateY(-4px) rotate(1.5deg);
+      box-shadow: 0 16px 48px rgba(135, 206, 235, .25)
     }
 
     .photo-item img {
@@ -425,33 +426,26 @@
       height: 220px;
       object-fit: cover;
       display: block;
-      transition: transform .4s
-    }
-
-    .photo-item:hover img {
-      transform: scale(1.08)
+      border-radius: 2px;
     }
 
     .photo-overlay {
       position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(5, 13, 26, .8) 0%, transparent 50%);
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 44px;
       display: flex;
-      align-items: flex-end;
-      padding: 14px;
-      opacity: 0;
-      transition: opacity .3s;
-    }
-
-    .photo-item:hover .photo-overlay {
-      opacity: 1
+      align-items: center;
+      justify-content: center;
     }
 
     .photo-cap {
       font-family: 'Dancing Script', cursive;
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 700;
-      color: #fff
+      color: #1e3a6e;
+      letter-spacing: .2px;
     }
 
     /* ── LINKS ── */
