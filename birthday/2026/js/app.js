@@ -128,11 +128,44 @@ function runSequence() {
 }
 
 /* ── GALLERY (S3) ── */
+/* Per-photo face focus — adjust if a specific photo needs different position */
+var PHOTO_FOCUS = ['center center','center center','center center','center center','center center'];
+
+/* Sparkle emojis for tap effect */
+var SPARKLES = ['✨','💙','🌸','💫','⭐','🌷','💖'];
+
+function spawnRipple(card, x, y) {
+  var r = document.createElement('div');
+  r.className = 'tap-ripple';
+  r.style.left = x + 'px';
+  r.style.top  = y + 'px';
+  card.appendChild(r);
+  setTimeout(function(){ r.parentNode && r.parentNode.removeChild(r); }, 650);
+}
+
+function spawnGallerySparkles(cx, cy) {
+  for (var s = 0; s < 5; s++) {
+    (function(idx) {
+      setTimeout(function() {
+        var el = document.createElement('span');
+        el.className = 'gallery-sparkle';
+        el.textContent = SPARKLES[Math.floor(Math.random() * SPARKLES.length)];
+        var ox = (Math.random() * 80) - 40;
+        el.style.left = (cx + ox) + 'px';
+        el.style.top  = cy + 'px';
+        el.style.fontSize = (14 + Math.random() * 12) + 'px';
+        document.getElementById('s3').appendChild(el);
+        setTimeout(function(){ el.parentNode && el.parentNode.removeChild(el); }, 1100);
+      }, idx * 80);
+    })(s);
+  }
+}
+
 function buildGallery() {
   var container = document.getElementById('stackGallery');
   var nextBtn = document.getElementById('galleryNext');
   container.innerHTML = '';
-  
+
   var cards = [];
   var total = PHOTOS.length;
   var clicks = 0;
@@ -141,21 +174,25 @@ function buildGallery() {
     var card = document.createElement('div');
     card.className = 'polaroid photo-glow stack-card';
     card.style.zIndex = total - i;
-    
-    // Add random slight rotation and translation for stack effect
-    var rot = (Math.random() * 14) - 7; 
-    var dx = (Math.random() * 30) - 15;
-    var dy = (Math.random() * 30) - 15;
+
+    var rot = (Math.random() * 12) - 6;
+    var dx  = (Math.random() * 20) - 10;
+    var dy  = (Math.random() * 20) - 10;
     card.style.setProperty('--rot', rot + 'deg');
-    card.style.setProperty('--dx', dx + 'px');
-    card.style.setProperty('--dy', dy + 'px');
+    card.style.setProperty('--dx',  dx  + 'px');
+    card.style.setProperty('--dy',  dy  + 'px');
     card.style.transform = 'translate(' + dx + 'px, ' + dy + 'px) rotate(' + rot + 'deg)';
-    
+
+    /* Staggered entrance */
+    card.classList.add('entering');
+    card.style.animationDelay = (i * 0.08) + 's';
+
     var img = document.createElement('img');
     img.src = p.src;
     img.alt = p.cap;
     img.draggable = false;
     img.className = 'card-img';
+    img.style.objectPosition = PHOTO_FOCUS[i] || 'center center';
 
     var cap = document.createElement('p');
     cap.className = 'pcap';
@@ -166,39 +203,49 @@ function buildGallery() {
     container.appendChild(card);
     cards.push(card);
 
-    card.addEventListener('click', function() {
+    card.addEventListener('click', function(e) {
       clicks++;
-      if(clicks >= total - 1) {
-        nextBtn.style.display = 'inline-flex';
-      }
-      
-      // Swipe out animation (Tinder style)
-      card.style.transform = 'translate(' + (dx + 200) + 'px, ' + (dy - 50) + 'px) rotate(' + (rot + 30) + 'deg)';
-      card.style.opacity = '0';
-      
+      if (clicks >= total - 1) { nextBtn.style.display = 'inline-flex'; }
+
+      /* Ripple at tap point */
+      var rect = card.getBoundingClientRect();
+      var tx = (e.clientX || rect.left + rect.width/2) - rect.left;
+      var ty = (e.clientY || rect.top  + rect.height/2) - rect.top;
+      spawnRipple(card, tx, ty);
+
+      /* Sparkles above tap */
+      var cx = e.clientX || rect.left + rect.width/2;
+      var cy = e.clientY || rect.top  + rect.height/2;
+      spawnGallerySparkles(cx, cy - 10);
+
+      /* Swipe card out to the right */
+      card.style.transition = 'transform 0.42s cubic-bezier(.55,.06,.68,.19), opacity 0.35s ease';
+      card.style.transform  = 'translate(' + (dx + 220) + 'px, ' + (dy - 40) + 'px) rotate(' + (rot + 28) + 'deg)';
+      card.style.opacity    = '0';
+
       setTimeout(function() {
-        container.prepend(card); // move to bottom of DOM
-        cards.forEach(function(c, idx) {
-           // Recalculate z-index: first in DOM is lowest z-index
-           c.style.zIndex = Array.from(container.children).indexOf(c);
+        container.prepend(card);
+        /* Update z-indexes */
+        Array.from(container.children).forEach(function(c, idx) {
+          c.style.zIndex = idx;
         });
-        
-        // Instant reset behind the stack
+
+        /* Instant reset hidden behind stack */
         card.style.transition = 'none';
-        card.style.transform = 'translate(' + (dx - 50) + 'px, ' + (dy + 20) + 'px) rotate(' + (rot - 10) + 'deg) scale(0.95)';
-        
-        // Force reflow
-        void card.offsetWidth;
-        
-        // Smooth return
-        card.style.transition = 'transform 0.5s cubic-bezier(.34, 1.56, .64, 1), opacity 0.4s';
-        card.style.transform = 'translate(' + dx + 'px, ' + dy + 'px) rotate(' + rot + 'deg)';
-        card.style.opacity = '1';
-      }, 400); // Trigger before CSS transition fully finishes for snappiness
+        card.style.transform  = 'translate(' + (dx - 40) + 'px, ' + (dy + 15) + 'px) rotate(' + (rot - 8) + 'deg) scale(0.92)';
+        card.style.opacity    = '0';
+        void card.offsetWidth; /* force reflow */
+
+        /* Snap back into place */
+        card.style.transition = 'transform 0.5s cubic-bezier(.34,1.56,.64,1), opacity 0.4s ease';
+        card.style.transform  = 'translate(' + dx + 'px, ' + dy + 'px) rotate(' + rot + 'deg) scale(1)';
+        card.style.opacity    = '1';
+      }, 420);
     });
   });
 }
 var galleryBuilt = false;
+
 
 /* ── STARS ── */
 var starsBuilt = {};
