@@ -129,7 +129,7 @@ function runSequence() {
 
 /* ── GALLERY (S3) ── */
 /* Per-photo face focus — tweak % if a specific photo still cuts the face */
-var PHOTO_FOCUS = ['50% 30%','50% 30%','50% 30%','50% 30%','50% 30%'];
+var PHOTO_FOCUS = ['top','top','top','top','top'];
 
 /* Sparkle emojis for tap effect */
 var SPARKLES = ['✨','💙','🌸','💫','⭐','🌷','💖'];
